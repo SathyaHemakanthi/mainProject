@@ -1,0 +1,61 @@
+/* .yes_no{
+    margin-left: 1000px;
+} */
+.month2{
+    font-weight:bolder;
+}
+
+/* .result{
+   margin-left: 10px;
+   
+} */
+.develop_con{
+  align-items: center;
+  background-color: rgb(191, 243, 230);
+  width: 100%;
+  margin-left:10%;
+
+}
+
+.develop_con_2{
+  background-color: rgb(129, 203, 106);
+  margin-left: 10%;
+  width: 100%;
+}
+
+.custom-table, th, td {
+    width: 80%;
+    border: 1px ;
+  }
+
+  .question-row{
+    height: 15px; 
+    width: 60%;
+  }
+
+  .btn-submit{
+    background-color: lavender;
+    border-radius: 5px;
+    margin-left: 450px;
+  }
+
+  .btn-submit_2{
+    background-color: lavender;
+    border-radius: 5px;
+    margin-left: 650px;
+  }
+
+  .btn-submit:hover{
+    
+    background-color: rgb(14, 239, 190);
+    
+  }
+
+
+
+  .deve_border{
+   margin-left: 200px;
+    
+  }
+
+ 
