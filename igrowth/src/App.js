@@ -1,21 +1,25 @@
-import Chart from "chart.js/auto";
-import { CategoryScale } from "chart.js";
+import React from "react";
 import { useState } from "react";
-import { Data } from "./Data";
-import LineChart from "../components/LineChart";
+import { LineChart } from "./LineChart";
 
-Chart.register(CategoryScale);
-
-  export default function App() {
-    const [chartData, setChartData] = useState({
-      // ...chart data
-    });
+function App() {
+  const [chartData, setChartData] = useState({
+    labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+    datasets: [
+      {
+        label: "Example Data",
+        data: [12, 19, 3, 5, 2],
+        fill: false,
+        borderColor: "blue",
+      },
+    ],
+  });
 
   return (
     <div className="App">
-     <LineChart chartData={chartData} />
+      <LineChart chartData={chartData} />
     </div>
   );
-  }
+}
 
 export default App;
