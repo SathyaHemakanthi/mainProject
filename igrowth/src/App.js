@@ -1,63 +1,18 @@
-import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import React from 'react'
+import {BrowserRouter as Router, Route,Routes} from 'react-router-dom';
+import Graph from './graph.js'
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top',
-    },
-    title: {
-      display: true,
-      text: 'Chart.js Line Chart',
-    },
-  },
-};
-
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-// Sample data (replace this with your own data)
-const dataset1Data = [100, 200, 150, 300, 250, 400, 350];
-const dataset2Data = [300, 250, 400, 350, 200, 150, 100];
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: dataset1Data,
-      borderColor: 'rgb(255, 99, 132)',
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-    {
-      label: 'Dataset 2',
-      data: dataset2Data,
-      borderColor: 'rgb(53, 162, 235)',
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
-  ],
-};
-
-export default function App() {
-  return <Line options={options} data={data} />;
+function App() {
+  return (
+    <div>
+      <Router>
+        <Routes>
+          <Route exat path="/" element={<Graph/>} />
+        </Routes>
+      </Router>
+    </div>
+  );
 }
+
+export default App
