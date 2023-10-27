@@ -1,6 +1,6 @@
 import React from "react"
 import {BrowserRouter as Router, Route,Routes} from 'react-router-dom';
-import { ScheduleComponent } from "@syncfusion/ej2-react-schedule";      
+// import { ScheduleComponent } from "@syncfusion/ej2-react-schedule";      
 import Navbar from './component/Navbar';
 import Header from './component/Header';
 import News from './Pages/Parent/News';
