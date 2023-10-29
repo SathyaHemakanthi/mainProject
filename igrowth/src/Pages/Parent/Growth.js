@@ -69,24 +69,35 @@ export const options = {
     },
     title: {
       display: true,
-      text: "Age/ Weight Graph",
+      text: "Weight/Hight Graph",
     },
   },
 };
 
 const labels = ["0", "01", "02", "03", "04", "05", "06", "07"];
 
-// Sample data (replace this with your own data)
-const dataset1Data = [0, 3, 4, 4.2, 4.1, 4.5, 5, 4.9];
+// Sample data for age graph
+const weightData = [0, 3, 4, 4.2, 4.1, 4.5, 5, 4.9];
+
+//Sample data for height graph
+const heightData = [90, 92, 94, 96, 98, 100, 102, 104];
+
+
 
 export const data = {
   labels,
   datasets: [
     {
-      label: "",
-      data: dataset1Data,
+      label: "Weight",
+      data: weightData,
       borderColor: "rgb(255, 99, 132)",
       backgroundColor: "rgba(255, 99, 132, 0.5)",
+    },
+    {
+    label: "Height",
+      data: heightData,
+      borderColor: "rgb(75, 192, 192)",
+      backgroundColor: "rgba(75, 192, 192, 0.5)",
     },
   ],
 };
