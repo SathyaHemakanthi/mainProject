@@ -24,6 +24,14 @@ app.get('/development_activities',(req,res)=>{
      })
 })
 
+app.get('/consultation', (req, res) => {
+    const sql = 'SELECT * FROM development_activities';
+    db.query(sql,(err, data)=>{
+        if(err) return res.json(err);
+        return res.json(data);
+    });
+  });
+
 app.listen(8081,()=>{
     console.log("listning");
 })
