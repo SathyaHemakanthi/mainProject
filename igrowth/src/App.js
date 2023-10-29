@@ -10,7 +10,8 @@ import Vaccination from"./Pages/Parent/Vaccination";
 import Health from"./Pages/Parent/Health";
 import Consultation from"./Pages/Parent/Consultation";
 import Calendar from "./Pages/Parent/Vaccination";
-import Calender from "./Pages/Parent/Vaccination";
+// import Calender from "./Pages/Parent/Vaccination";
+import Logout from "./Pages/Parent/Logout"; 
 
 function App() {
   return(
@@ -30,6 +31,7 @@ function App() {
       <Route exat path ='/health' element ={<Health/>}/>
       <Route exat path ='/consultation' element ={<Consultation/>}/>
       <Route exat path ='/calender' element ={<Calendar/>}/>
+      <Route exat path="/logout" element={<Logout/>}/>
       
 
       
