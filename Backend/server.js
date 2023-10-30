@@ -32,6 +32,16 @@ app.get('/consultation', (req, res) => {
     });
   });
 
+  app.post("/update_development_activity_status", (req, res) => {
+    const { activityStatus } = req.body;
+    const sql = `UPDATE development_activities SET activity_status = ?`;
+    db.query(sql[activityStatus],(err, data)=>{
+        if(err) return res.json(err);
+        return res.json(data);
+      })
+    });
+
+
 app.listen(8081,()=>{
     console.log("listning");
 })

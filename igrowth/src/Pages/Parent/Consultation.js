@@ -17,8 +17,8 @@ function Consultation() {
             <div class="card-body" key={i}>
                <img className="doctor" src={prof} alt="doctor" />
           <h4 class="card-title">{d.activity_name}</h4>
-          <p class="card-text">Lady Ridway Hospital,Borella.</p>
-          <p class="card-contact">Contact Number:071-2034867</p>
+          <p class="card-text">{d.activity_id}</p>
+          <p class="card-contact">{d.activity_name}</p>
               </div>
 
           ))}
