@@ -12,17 +12,19 @@ function Consultation() {
   }, []);
   return (
     <div>
-      <div class="card">
+      
           {data.map((d,i)=>(
-            <div class="card-body" key={i}>
+            <div class="card" key={i}>
+            <div class="card-body" >
                <img className="doctor" src={prof} alt="doctor" />
           <h4 class="card-title">{d.activity_name}</h4>
           <p class="card-text">{d.activity_id}</p>
           <p class="card-contact">{d.activity_name}</p>
               </div>
 
-          ))}
+          
         </div>
+        ))}
     </div>
   );
 }
