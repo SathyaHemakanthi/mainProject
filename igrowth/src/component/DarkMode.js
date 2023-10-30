@@ -16,6 +16,7 @@ const DarkMode = () => {
                 <Sun />
                 <Moon />
             </label>
+            <div className="my"></div>
         </div>
     );
 };
