@@ -622,10 +622,16 @@ const Develop = () => {
             </tbody>
             </table>
 
-            <table>
-              <tbody>
+            {/* <table>
+              <tbody> */}
 
+              <table className="custom-table">
+          <tbody>
+            <br />
 
+            <div className='develop_con'>
+              <div className="deve_border">
+                <br/>
             <label className="month2" htmlFor="">
               At 9 months of age:
             </label>
@@ -838,6 +844,11 @@ const Develop = () => {
             <input className="btn-submit" type="submit" value="submit" />
             <br />
             <br />
+            </div>
+            </div>
+
+       
+         
 
             <label className="month2" htmlFor="">
               At 12 months of age:

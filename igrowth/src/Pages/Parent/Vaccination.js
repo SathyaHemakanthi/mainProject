@@ -1,12 +1,12 @@
 import format from "date-fns/format";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import getDay from "date-fns/getDay";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import React, { useState } from "react";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./vaccination.css";
 
@@ -98,46 +98,46 @@ function Calendar1() {
             <div class="cale">
             <Calendar localizer={localizer} events={allEvents} startAccessor="start" endAccessor="end"  />
             </div>
-            <div className="app-container">
+            {/* <div className="app-container">
         <div className="left-side">
           <UpcomingEvents events={allEvents} />
           <VaccinationHistory history={vaccinationHistory} />
-        </div>
+        </div> */}
         {/* <div className="right-side">
           <VaccinationHistory history={vaccinationHistory} />
         </div> */}
       </div>
 
             
-        </div>
+        
     );
 }
-function UpcomingEvents({ events }) {
-  return (
-    <div className="upcoming-events">
-      <h2>Upcoming Events</h2>
-      <ul>
-        {events.map((event, index) => (
-          <li key={index}>{event.title}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+// function UpcomingEvents({ events }) {
+//   return (
+//     <div className="upcoming-events">
+//       <h2>Upcoming Events</h2>
+//       <ul>
+//         {events.map((event, index) => (
+//           <li key={index}>{event.title}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
 
-function VaccinationHistory({ history }) {
-  return (
-    <div className="vaccination-history">
-      <h2>Vaccination History</h2>
-      {/* <ul>
-        {history.map((entry, index) => (
-          // <li key={index}>{entry}</li>
-        ))}
-      </ul> */}
-    </div>
-  );
-}
+// function VaccinationHistory({ history }) {
+//   return (
+//     <div className="vaccination-history">
+//       <h2>Vaccination History</h2>
+//       {/* <ul>
+//         {history.map((entry, index) => (
+//           // <li key={index}>{entry}</li>
+//         ))}
+//       </ul> */}
+//     </div>
+//   );
+// }
 
 
 
-export default (Calendar1,UpcomingEvents,VaccinationHistory)
+export default (Calendar1)
