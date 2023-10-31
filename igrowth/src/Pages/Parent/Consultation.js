@@ -17,9 +17,11 @@ function Consultation() {
         <img  src={prof} alt="doctor" /></div> */}
         <div class="card-body">
           <img className="doctor" src={prof} alt="doctor" />
+          <div className="right_side">
           <h4 class="card-title">Dr.Rakhitha Munasinghe</h4>
           <p class="card-text">Lady Ridway Hospital,Borella.</p>
           <p class="card-contact">Contact Number:071-2034867</p>
+          </div>
           {/* <a href="#" class="btn btn-primary">See Profile</a> */}
         </div>
       </div>
