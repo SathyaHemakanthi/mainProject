@@ -14,6 +14,7 @@ function Header() {
             <button type="button" className="btn btn-light">Profile</button>
             <button type="button" className="btn btn-light ">Log out</button>
            </div> 
+           <div className='my'></div>
            </div>
         </>
            
