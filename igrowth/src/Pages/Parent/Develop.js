@@ -35,11 +35,11 @@ const Develop = () => {
   };
 
   return (
-    <div>
-      <table>
+    <div className="table_card">
+      <table className="aa">
         <thead>
           <tr>
-            <th>ID</th>
+            <th >ID</th>
             <th>Name</th>
             <th>Status</th>
           </tr>
@@ -69,7 +69,7 @@ const Develop = () => {
           ))}
         </tbody>
       </table>
-      <button onClick={handleSubmit}>Submit</button>
+      <button className="submit_btn" onClick={handleSubmit}>Submit</button>
     </div>
   );
 };

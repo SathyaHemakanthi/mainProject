@@ -1,14 +1,9 @@
-/* .yes_no{
-    margin-left: 1000px;
-} */
+/* 
 .month2{
     font-weight:bolder;
 }
 
-/* .result{
-   margin-left: 10px;
-   
-} */
+
 .develop_con{
   align-items: center;
   background-color: rgb(191, 243, 230);
@@ -57,5 +52,33 @@
    margin-left: 200px;
     
   }
+
+  */
+
+  .submit_btn{
+  border-radius: 10px;
+  margin-top: 20px ;
+  margin-left: 200px;
+  background-color:rgb(14, 239, 190) ;
+  }
+
+  .submit_btn:hover{
+    background-color:  rgb(43, 149, 201);
+    
+  }
+
+  .table_card{
+    background-color: aquamarine;
+    width: 400px;
+    height: 200px;
+    margin-left: 50px;
+  }
+
+  .aa{
+    margin: 30px 20px auto;
+  }
+ 
+
+  
 
  
