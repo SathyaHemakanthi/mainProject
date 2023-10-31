@@ -1,44 +1,80 @@
-// import React from 'react'
-// import { Link } from 'react-router-dom';
+// import React from "react";
+// import {
+//   Chart as ChartJS,
+//   CategoryScale,
+//   LinearScale,
+//   PointElement,
+//   LineElement,
+//   Title,
+//   Tooltip,
+//   Legend,
+// } from "chart.js";
+// import { Line } from "react-chartjs-2";
+
+// ChartJS.register(
+//   CategoryScale,
+//   LinearScale,
+//   PointElement,
+//   LineElement,
+//   Title,
+//   Tooltip,
+//   Legend
+// );
+
+// export const options = {
+//   responsive: true,
+//   plugins: {
+//     legend: {
+//       position: "top",
+//     },
+//     title: {
+//       display: true,
+//       text: "Age-Weight Graph",
+//     },
+//   },
+// };
+
+// const labels = ["0", "01", "02", "03", "04", "05", "06", "07","08","09"];
+
+// // Sample data for age graph
+// const weightData = [0, 3, 4, 4.2, 4.1, 4.5, 5, 4.9];
+
+// //Sample data for height graph
+// // const heightData = [0,92, 94, 96, 98, 100, 102, 104];
 
 
-// export default Growth;
 
-// GrowthChart.jsimport React from 'react';
-// import { Line } from 'react-chartjs-2';
+// export const data = {
+//   labels,
+//   datasets: [
+//     {
+//       label: "Weight",
+//       data: weightData,
+//       borderColor: "rgb(255, 99, 132)",
+//       backgroundColor: "rgba(255, 99, 132, 0.5)",
+//     },
+//     // {
+//     // label: "Height",
+//     //   data: heightData,
+//     //   borderColor: "rgb(75, 192, 192)",
+//     //   backgroundColor: "rgba(75, 192, 192, 0.5)",
+//     // },
+//   ],
+// };
 
 // function Growth() {
-
-//   const data = {
-//     labels: ['Month 1', 'Month 2', 'Month 3'], 
-//     datasets: [
-//       {
-//         label: 'Baby Weight (kg)',
-//         data: [3.5, 4.0, 4.5], 
-//         borderColor: 'blue',
-//       },
-//       {
-//         label: 'Baby Height (cm)',
-//         data: [50, 55, 60], 
-//         borderColor: 'green',
-//       },
-//     ],
-//   };
-
-//   const options = {
-//     scales: {
-//       y: {
-//         beginAtZero: true,
-//       },
-//     },
-//   };
-
-//   return <Line data={data} options={options} />;
+//     return (
+//         <div>
+//             <Line options={options} data={data} />
+//             Sathya
+//         </div>
+//       )
 // }
 
 // export default Growth;
 
-import React from "react";
+import React, { useState } from "react";
+import "./growth.css"
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -69,46 +105,105 @@ export const options = {
     },
     title: {
       display: true,
-      text: "Weight/Hight Graph",
+      // text: "Growth Chart",
     },
   },
 };
 
-const labels = ["0", "01", "02", "03", "04", "05", "06", "07"];
+const labels = ["0", "01", "02", "03", "04", "05", "06", "07", "08", "09"];
 
-// Sample data for age graph
 const weightData = [0, 3, 4, 4.2, 4.1, 4.5, 5, 4.9];
+const heightData = [0, 60, 62, 69, 74, 79, 88, 90];
+const headCircumferenceData = [0, 28, 30, 35.5, 37, 39.8, 42, 44];
 
-//Sample data for height graph
-const heightData = [90, 92, 94, 96, 98, 100, 102, 104];
-
-
-
-export const data = {
+export const weightChartData = {
   labels,
   datasets: [
     {
       label: "Weight",
       data: weightData,
-      borderColor: "rgb(255, 99, 132)",
+      borderColor: "rgba(255, 99, 132, 0.5)",
       backgroundColor: "rgba(255, 99, 132, 0.5)",
     },
+  ],
+};
+
+export const heightChartData = {
+  labels,
+  datasets: [
     {
-    label: "Height",
+      label: "Height",
       data: heightData,
-      borderColor: "rgb(75, 192, 192)",
+      borderColor: "rgba(75, 192, 192, 0.5)",
       backgroundColor: "rgba(75, 192, 192, 0.5)",
     },
   ],
 };
 
+export const headCircumferenceChartData = {
+  labels,
+  datasets: [
+    {
+      label: "Head Circumference",
+      data: headCircumferenceData,
+      borderColor: "rgba(255, 206, 86, 0.5)",
+      backgroundColor: "rgba(255, 206, 86, 0.5)",
+    },
+  ],
+};
+
 function Growth() {
-    return (
+  const [showWeightGraph, setShowWeightGraph] = useState(true);
+  const [showHeightGraph, setShowHeightGraph] = useState(false);
+  const [showHeadCircumferenceGraph, setShowHeadCircumferenceGraph] = useState(false);
+
+  const showWeight = () => {
+    setShowWeightGraph(true);
+    setShowHeightGraph(false);
+    setShowHeadCircumferenceGraph(false);
+  };
+
+  const showHeight = () => {
+    setShowWeightGraph(false);
+    setShowHeightGraph(true);
+    setShowHeadCircumferenceGraph(false);
+  };
+
+  const showHeadCircumference = () => {
+    setShowWeightGraph(false);
+    setShowHeightGraph(false);
+    setShowHeadCircumferenceGraph(true);
+  };
+
+  return (
+    <div>
+      <div>
+        <button className="weight" onClick={showWeight}>View Weight Graph</button>
+        <button className="height" onClick={showHeight}>View Height Graph</button>
+        <button className="head" onClick={showHeadCircumference}>View Head Circumference Graph</button>
+      </div>
+
+      {showWeightGraph && (
         <div>
-            <Line options={options} data={data} />
-            Sathya
+          <Line options={options} data={weightChartData} />
         </div>
-      )
+      )}
+
+      {showHeightGraph && (
+        <div>
+          <Line options={options} data={heightChartData} />
+        </div>
+      )}
+
+      {showHeadCircumferenceGraph && (
+        <div>
+          <Line options={options} data={headCircumferenceChartData} />
+        </div>
+      )}
+
+      Sathya
+    </div>
+  );
 }
 
 export default Growth;
