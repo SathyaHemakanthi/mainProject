@@ -54,7 +54,7 @@ const Develop = () => {
       <table>
         <thead>
           <tr>
-            <th>ID</th>
+            <th>I</th>
             <th>Name</th>
             <th>Status</th>
           </tr>
@@ -78,7 +78,7 @@ const Develop = () => {
                 Yes
                 <input
                   type="radio"
-                  name={`status-${d.activity_id}`}
+                  name={`status-${ d.activity_id}`}
                   value="No"
                   checked={
                     d.activity_id === selectedActivity &&
