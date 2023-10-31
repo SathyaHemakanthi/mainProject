@@ -1,18 +1,3 @@
- .doctor{
-    
-    margin-bottom: 50px;
-    margin-right: 200px;
-    margin-left: 5px;
-    margin-top: 10px;
-    height:10px;
-    width:5px;
-} 
-
-/* .meet{
-    margin-top: 10px;
-    margin-left: 1050px;
-} */ 
-
 .card{
     margin-right:1200px;
     margin-left: 80px;
@@ -43,7 +28,7 @@ margin-left: 60px;
 
 .card-title{
     margin-left: 400px;
-    margin-top: -300px;
+    margin-top: -200px;
 
 }
 
