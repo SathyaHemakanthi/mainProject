@@ -50,7 +50,8 @@ function News() {
 
 
 
-   <div className="n-container">                 
+   <div className="n-container">
+
       <img src={img4} className="img" alt="img4" />
       <div class="right-side">
        
@@ -73,50 +74,7 @@ function News() {
       </div>
     </div>
 
-    <div className="n-container">                
-      <img src={img6} className="img" alt="img6" />
-      <div class="right-side">
-        
-        <div class="paragraph-div-title">
-        Measures to be taken at workplace to prevent covid-19
-        </div>
-        <div class="paragraph-div-content">
-          
-        We spend more time at work places. So we need to care more about 
-        how to protect places that work against covid-19 Follow these 
-        instructions to keep your work safe.
-            
-          
-        </div>
-
-        <Link to="/Growth" className="nav-cake">
-          <div className="readMore">Read More</div>
-        </Link>
-      </div>
-    </div> 
-
-    <div className="n-container">                
-      <img src={img5} className="img" alt="img5" />
-      <div class="right-side">
-       
-        <div class="paragraph-div-title">
-         prevent covid-19
-        </div>
-        <div class="paragraph-div-content">
-          
-        We spend more time at work places. So we need to care more about 
-        how to protect places that work against covid-19 Follow these 
-        instructions to keep your work safe.
-            
-          
-        </div>
-
-        <Link to="/Growth" className="nav-cake">
-          <div className="readMore">Read More</div>
-        </Link>
-      </div>
-    </div> 
-
+    
     <div className="footer">
         © 2023 Monitor Baby Growth & Suggest Advice
       </div>
