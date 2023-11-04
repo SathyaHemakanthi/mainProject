@@ -14,9 +14,9 @@
 
 // BabyForm.js
 import React, { useState } from 'react';
-import './BabyForm.css';
+import './form.css';
 
-function BabyForm() {
+function Form() {
   const [baby, setBaby] = useState({
     name: '',
     age: '',
@@ -85,4 +85,4 @@ function BabyForm() {
   );
 }
 
-export default BabyForm;
+export default Form;

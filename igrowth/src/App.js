@@ -12,6 +12,7 @@ import Consultation from"./Pages/Parent/Consultation";
 import Calendar1 from "./Pages/Parent/Vaccination";
 // import Calender from "./Pages/Parent/Vaccination";
 import Logout from "./Pages/Parent/Logout"; 
+// import Form from "./Pages/Midwife/Form";
 
 function App() {
   return(
@@ -32,6 +33,7 @@ function App() {
       <Route exat path ='/consultation' element ={<Consultation/>}/>
       <Route exat path ='/calender' element ={<Calendar1/>}/>
       <Route exat path="/logout" element={<Logout/>}/>
+      {/* <Route exat path="/form" element={<Form/>}/> */}
       
 
       
