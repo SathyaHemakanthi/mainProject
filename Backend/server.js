@@ -1,9 +1,12 @@
 const express = require('express');
 const mysql = require('mysql')
 const cors = require('cors')
+const multer  = require('multer')
+
 
 const app = express()
 app.use(cors())
+app.use(express.json())
 
 const db = mysql.createConnection({
     host: "localhost",
@@ -12,7 +15,7 @@ const db = mysql.createConnection({
     database:"igrowth"
 })
 
-app.get('/',(re,res)=>{
+app.get('/',(req,res)=>{
     return res.json("From backend side");
 })
 
@@ -40,6 +43,7 @@ app.get('/consultation', (req, res) => {
         return res.json(data);
       })
     });
+    
     app.get('/news', (req, res) => {
         const sql = 'SELECT * FROM news';
         db.query(sql,(err, data)=>{
@@ -47,8 +51,10 @@ app.get('/consultation', (req, res) => {
             return res.json(data);
         });
       });
-    
 
+      app.post('/upload', (req, res) => {
+        
+      });
 
 app.listen(8081,()=>{
     console.log("listning");

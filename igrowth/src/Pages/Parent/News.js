@@ -11,11 +11,11 @@ import img6 from './images/helth04.jpg'
 
 
 function News() {
-  const [data, setData] = useState([]);
+  const [news, setData] = useState([]);
   useEffect(() => {
     fetch("http://localhost:8081/news")
       .then((res) => res.json())
-      .then((data) => setData(data))
+      .then((news) => setData(news))
       .catch((err) => console.log(err));
   }, []);
 
@@ -59,19 +59,19 @@ function News() {
 </div>
    </div>
 
-   {data.map((d,i)=>(  
+   {news.map((n,i)=>(  
 
    <div className="n-container" key={i}>
 
-      <img src={img4} className="img" alt="img4" />
+      <img src={n.image} className="img" alt="" />
       <div class="right-side">
        
         <div class="paragraph-div-title">
-        {d.title}
+        {n.title}
         </div>
         <div class="paragraph-div-content">
           
-        {d.content}
+        {n.content}
             
           
         </div>
@@ -80,7 +80,7 @@ function News() {
           <div className="readMore">Read More</div>
         </Link>
       </div>
-      <div className="date">{d.date}</div>
+      <div className="date">{n.date}</div>
 
     </div>
       ))}
