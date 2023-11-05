@@ -11,6 +11,8 @@ import Vaccination from "./Pages/Parent/Vaccination";
 import Health from "./Pages/Parent/Health";
 import Consultation from "./Pages/Parent/Consultation";
 import Calendar from "./Pages/Parent/Vaccination";
+import Upload from "./Pages/Admin/Upload.js";
+import Login from "./Pages/Admin/Login.js";
 
 
 
@@ -89,6 +91,23 @@ const router = createBrowserRouter([
         path:"/midwife/growth",
         element:<Growth />,
 
+      },
+
+    ]
+
+  },
+
+  {
+    path:"/admin",
+    element:<Layout2/>,
+    children:[
+      {
+        path:"/admin/login" ,
+        element:<Login />,
+      },
+      {
+        path:"/admin/upload" ,
+        element:<Upload />,
       },
 
     ]

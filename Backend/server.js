@@ -19,6 +19,8 @@ app.get('/',(req,res)=>{
     return res.json("From backend side");
 })
 
+
+
 app.get('/development_activities',(req,res)=>{
      const sql = "SELECT * from development_activities";
      db.query(sql,(err, data)=>{
@@ -52,9 +54,10 @@ app.get('/consultation', (req, res) => {
         });
       });
 
-      app.post('/upload', (req, res) => {
-        
-      });
+
+    //news upload by admin
+
+
 
 app.listen(8081,()=>{
     console.log("listning");
