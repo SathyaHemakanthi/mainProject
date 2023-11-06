@@ -1,0 +1,67 @@
+body{
+  background-color: #edd2f8;
+} 
+.outerbox{
+  
+  height: 500px;
+  width: 750px;
+  background-color: clear;
+  /* margin-top: 100px; */
+  /* margin: 0 100px auto; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+.pic{
+  width: 450px;
+  height: 500px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  
+  background-image: url('https://images.unsplash.com/photo-1552788960-65fcafe071a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFieSUyMHBvcnRyYWl0fGVufDB8fDB8fHww&w=1000&q=80'); /* Replace with the path to your image */
+  background-size:cover; /* Scale the image to cover the entire element */
+  /* background-position: center; Center the image within the element */
+}
+.login-container {
+    width: 300px;
+    /* margin: 0 auto; */
+    background-color: #CF9FFF;
+    border: 1px solid #CF9FFF;
+    padding: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+  }
+  
+  .login-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .login-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .login-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    /* border: 1px solid #CF9FFF; */
+    border-radius: 5px;
+  }
+  
+  .login-container button {
+    width: 40%;
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .inpbox{
+    background-color: #e4cde4;
+    border: 1px solid #CF9FFF
+  }
