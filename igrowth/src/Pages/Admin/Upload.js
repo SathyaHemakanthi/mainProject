@@ -1,47 +1,79 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-import './write.css'
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ReactQuill from "react-quill";
-import 'react-quill/dist/quill.snow.css'
-import axios from 'axios'
+import 'react-quill/dist/quill.snow.css';
 
-const Upload = () =>{
-    const [content, setContent] = useState();
-    const [title, setTitle] = useState();
-    const [file, setFile] = useState();
-  console.log(content)
-  console.log(title)
-  console.log(file)
-  const handleClick = async (e) => {
-    e.preventDefault();
+function Upload() {
+  const [file, setFile] = useState(null);
+  const [values, setValues] = useState({
+    title: '',
+    content: '',
+  });
 
+  const navigate = useNavigate();
 
-  };
+  const handleChange = (content) => {
+    setValues({ ...values, content });
+  }
+
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("image", file);
+    formData.append("title", values.title);
+    formData.append("content", values.content);
+
+    axios.post("http://localhost:8081/igrowth/news", formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+      .then((res) => {
+        alert("Upload success");
+        navigate('/parent/news');
+      })
+      .catch((err) => console.log(err));
+  }
 
   return (
-    <div>
-        <form>
     <div className='pwrite'>
-      <div className="pcontent"></div>
-      <input className="tint" type='text' name='title' placeholder='Title' onChange={setTitle} />
-      <div className="pmenu">
-      <div className="editorContainer">
-        <ReactQuill name='content' id='content' theme='snow' content={content} onChange={setContent}/>
-      </div>
+      <form onSubmit={handleSubmit}>
+        <input
+          className="tint"
+          type='text'
+          placeholder='Title'
+          name='title'
+          id='title'
+          value={values.title}
+          onChange={(e) => setValues({ ...values, title: e.target.value })}
+        />
+        <div className="editorContainer">
+          <ReactQuill
+            theme='snow'
+            value={values.content}
+            onChange={handleChange}
+          />
+        </div>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleFileChange}
+        />
         <div className="item">
-          <input  type="file" name="" id="file"/>
-          <label htmlFor='file' name="file" onChange={(e) =>setFile(e.tartget.files[0])}>Upload Image</label>
           <div className="buttons">
-            {/* <input type='submit' value='Upload'/> */}
-            <button onClick={handleClick}>Upload</button>
+            <input type="submit" value="Upload" name="submit-btn" />
           </div>
         </div>
         
-      </div>
+      </form>
     </div>
-    </form>
-    </div>
-  )
+  );
 }
 
-export default Upload
+export default Upload;
