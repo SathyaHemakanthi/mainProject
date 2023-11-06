@@ -1,39 +1,37 @@
- .doctor{
-    margin-bottom: 50px;
-    margin-right: 200px;
-    margin-left: 5px;
-    margin-top: 10px;
-    height:10px;
-    width:5px;
-} 
+
 
 .card{
     margin: auto;
     margin-top: 50px;
-    width:1300px;
-    height:300px;
+    width:1100px;
+    height:250px;
 }
 
 .card-body{
    
     /* margin-left:20px ; */
     background-color: rgb(206, 204, 234);
-    width: 1300px;
+    width: 1100px;
     height:200px;
 }
 
 .doctor{
 position: relative;
 margin-top:10px ;
-width: 300px;
-height: 250px;
+width: 200px;
+height: 200px;
 justify-items: center;
-margin-left: 60px;
+margin-left: 40px;
 }
 
+.right_side{
+    margin-top: -170px;
+    width: 800px;
+
+}
 .card-title{
     margin-left: 400px;
-    margin-top: -300px;
+    
 }
 
 .card-text{
@@ -44,3 +42,9 @@ margin-left: 60px;
 .card-contact{
     margin-left: 400px;   
 }
+
+/* .dropdown{
+    margin-top: 20px;
+    margin-left: 30px;
+   
+} */

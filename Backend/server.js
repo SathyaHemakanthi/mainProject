@@ -6,7 +6,7 @@ const multer  = require('multer')
 
 const app = express()
 app.use(cors())
-app.use(express.json())
+
 
 const db = mysql.createConnection({
     host: "localhost",
@@ -37,25 +37,6 @@ app.get('/consultation', (req, res) => {
     });
   });
 
-  app.post("/update_development_activity_status", (req, res) => {
-    const { activityStatus } = req.body;
-    const sql = `UPDATE development_activities SET activity_status = ?`;
-    db.query(sql[activityStatus],(err, data)=>{
-        if(err) return res.json(err);
-        return res.json(data);
-      })
-    });
-    
-    app.get('/news', (req, res) => {
-        const sql = 'SELECT * FROM news';
-        db.query(sql,(err, data)=>{
-            if(err) return res.json(err);
-            return res.json(data);
-        });
-      });
-
-
-    //news upload by admin
 
 
 
