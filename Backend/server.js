@@ -1,10 +1,13 @@
 const express = require('express');
 const mysql = require('mysql')
 const cors = require('cors')
+const bodyParser = require('body-parser');
 
 const app = express()
 app.use(cors())
 app.use(express.json());
+app.use(bodyParser.json());
+
 
 const db = mysql.createConnection({
     host: "localhost",
@@ -57,6 +60,41 @@ app.get('/consultation', (req, res) => {
         return res.json(data);
     });
   });
+
+
+  //For post method signup
+app.post('/igrowth/signup',(req, res)=>{
+ 
+  const sql = "INSERT INTO signup (name, email, password) VALUES (?)";
+  const Values=[ 
+    req.body.name, 
+    req.body.email, 
+    req.body.password,
+  ];
+
+  
+  db.query(sql,[Values],(err,data)=>{
+      if(err) return res.json(err);
+      return res.json(data);
+    })
+})
+//For post method news
+
+app.post('/igrowth/news',(req, res)=>{
+ 
+  const sql = "INSERT INTO news (title, content) VALUES (?)";
+  const Values=[ 
+    req.body.title, 
+    req.body.content, 
+  ];
+
+  
+  db.query(sql,[Values],(err,data)=>{
+      if(err) return res.json(err);
+      return res.json(data);
+    })
+})
+
 
 
 
