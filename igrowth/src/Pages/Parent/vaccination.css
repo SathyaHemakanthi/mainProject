@@ -60,26 +60,4 @@ App.css
     border-bottom: none;
   } 
 
-  /* .App {
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
   
-  .app-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  
-  .left-side {
-    width: 40%;
-    text-align: left;
-  }
-  
-  .right-side {
-    width: 60%;
-    text-align: left;
-  }
-  
-  /* Add more CSS styles as needed */
-   
