@@ -28,50 +28,78 @@ const Develop = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((response) => { 
+      .then((response) => {
         console.log(response);
       })
       .catch((err) => console.error(err));
   };
 
+  const renderTables = () => {
+    // Group data by month
+    const groupedData = {};
+    data.forEach((d) => {
+      if (!groupedData[d.activity_month]) {
+        groupedData[d.activity_month] = [];
+      }
+      groupedData[d.activity_month].push(d);
+    });
+
+    return Object.keys(groupedData).map((activity_month, index) => (
+      <div className="table-card" key={index}>
+        <h2>Month {activity_month}</h2>
+        <table className="table-top">
+          <thead>
+            <tr>
+              <th className="id-width">ID</th>
+              <th className="name-width">Name</th>
+              <th className="status-width">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {groupedData[activity_month].map((d, i) => (
+              <tr key={i}>
+                <td>{d.activity_id}</td>
+                <td>{d.activity_name}</td>
+                <td className="table-input">
+                  <input
+                    type="radio"
+                    value="Yes"
+                    checked={d.activity_status === "Yes"}
+                    onChange={(e) => handleRadioChange(e, i)}
+                    name={`radio_${activity_month}_${d.activity_id}`} // Unique name for each radio button group
+                  />
+                  Yes
+                  <input
+                    type="radio"
+                    value="No"
+                    checked={d.activity_status === "No"}
+                    onChange={(e) => handleRadioChange(e, i)}
+                    name={`radio_${activity_month}_${d.activity_id}`} // Unique name for each radio button group
+                  />
+                  No
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    ));
+  };
+
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((d, i) => (
-            <tr key={i}>
-              <td>{d.activity_id}</td>
-              <td>{d.activity_name}</td>
-              <td>
-                <input
-                  type="radio"
-                  value="Yes"
-                  checked={d.activity_status === "Yes"}
-                  onChange={(e) => handleRadioChange(e, i)}
-                />
-                Yes
-                <input
-                  type="radio"
-                  value="No"
-                  checked={d.activity_status === "No"}
-                  onChange={(e) => handleRadioChange(e, i)}
-                />
-                No
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <button onClick={handleSubmit}>Submit</button>
+      {data.length === 0 ? (
+        <p>Loading data...</p>
+      ) : (
+        <div>
+          {renderTables()}
+          <button className="submit_btn" onClick={handleSubmit}>
+            Submit
+          </button>
+        </div>
+      )}
     </div>
   );
 };
 
-export default Develop; 
+export default Develop;
