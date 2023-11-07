@@ -14,6 +14,7 @@ import Calendar from "./Pages/Parent/Vaccination";
 import Upload from "./Pages/Admin/Upload.js";
 import Signup from "./Pages/Admin/Signup.js";
 import Signupchalana from "./Pages/Parent/Signupchalana.js"
+import Write from "./Pages/Admin/Write.js";
 
 
 
@@ -112,8 +113,8 @@ const router = createBrowserRouter([
       },
 
       {
-        path:"/admin/newsignup" ,
-        element:<Signupchalana />,
+        path:"/admin/write" ,
+        element:<Write/>,
       },
 
     ]
