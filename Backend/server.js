@@ -50,6 +50,15 @@ app.get('/consultation', (req, res) => {
     }
   });
 
+  app.get('/news', (req, res) => {
+    const sql = 'SELECT * FROM news';
+    db.query(sql,(err, data)=>{
+        if(err) return res.json(err);
+        return res.json(data);
+    });
+  });
+
+
 
 app.listen(8081,()=>{
     console.log("listning");

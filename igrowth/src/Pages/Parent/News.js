@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState ,useEffect} from "react";
 import { Link } from 'react-router-dom';
 import './news.css';
 import img1 from './images/corona.jpg'
@@ -8,10 +8,21 @@ import img4 from './images/helth01.jpg'
 import img5 from './images/helth02.jpg'
 import img6 from './images/helth04.jpg'
 
+
+
 function News() {
+  const [news, setData] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:8081/news")
+      .then((res) => res.json())
+      .then((news) => setData(news))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
-   <>
-        
+    
+   <div>
+     
     <div id="demo" class="carousel slide" data-bs-ride="carousel" >
 
   
@@ -48,21 +59,19 @@ function News() {
 </div>
    </div>
 
+   {news.map((n,i)=>(  
 
+   <div className="n-container" key={i}>
 
-   <div className="n-container">                 
-      <img src={img4} className="img" alt="img4" />
+      <img src={n.image} className="img" alt="" />
       <div class="right-side">
        
         <div class="paragraph-div-title">
-        If you think you are sick 
+        {n.title}
         </div>
         <div class="paragraph-div-content">
           
-        Having these symptoms doesn’t mean you have COVID-19. However, since these are 
-        common symptoms of the COVID-19 infection, for the sake of those close to you, 
-        please follow the measures mentioned below. Understand that this is part of your 
-        national responsibility.
+        {n.content}
             
           
         </div>
@@ -71,58 +80,17 @@ function News() {
           <div className="readMore">Read More</div>
         </Link>
       </div>
+      <div className="date">{n.date}</div>
+
     </div>
-
-    <div className="n-container">                
-      <img src={img6} className="img" alt="img6" />
-      <div class="right-side">
-        
-        <div class="paragraph-div-title">
-        Measures to be taken at workplace to prevent covid-19
-        </div>
-        <div class="paragraph-div-content">
-          
-        We spend more time at work places. So we need to care more about 
-        how to protect places that work against covid-19 Follow these 
-        instructions to keep your work safe.
-            
-          
-        </div>
-
-        <Link to="/Growth" className="nav-cake">
-          <div className="readMore">Read More</div>
-        </Link>
-      </div>
-    </div> 
-
-    <div className="n-container">                
-      <img src={img5} className="img" alt="img5" />
-      <div class="right-side">
-       
-        <div class="paragraph-div-title">
-         prevent covid-19
-        </div>
-        <div class="paragraph-div-content">
-          
-        We spend more time at work places. So we need to care more about 
-        how to protect places that work against covid-19 Follow these 
-        instructions to keep your work safe.
-            
-          
-        </div>
-
-        <Link to="/Growth" className="nav-cake">
-          <div className="readMore">Read More</div>
-        </Link>
-      </div>
-    </div> 
-
+      ))}
+    
     <div className="footer">
         © 2023 Monitor Baby Growth & Suggest Advice
       </div>
       
       
-      </> 
+      </div> 
   )
 }
 

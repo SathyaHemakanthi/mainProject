@@ -1,22 +1,5 @@
 import {ReactDOM} from "react";
 import { createBrowserRouter , RouterProvider, Route, Outlet} from "react-router-dom";
-import Navbar from "./component/Navbar";
-import Navbar2 from "./component/Navbar2";
-import Header from "./component/Header";
-import News from "./Pages/Parent/News";
-import Growth from "./Pages/Parent/Growth";
-import Develop from "./Pages/Parent/Develop";
-import Vaccination from "./Pages/Parent/Vaccination";
-import Health from "./Pages/Parent/Health";
-import Consultation from "./Pages/Parent/Consultation";
-import Calendar from "./Pages/Parent/Vaccination";
-import Measure from "./Pages/Midwife/Measure";
-import Baby_Detail from "./Pages/Midwife/Baby_Detail";
-import Vacc_Detail from "./Pages/Midwife/Vacc_Detail";
-import Consult_Advices from "./Pages/Midwife/Consult_Advices";
-import Marke_Activity from "./Pages/Midwife/Marke_Activity";
-import Create_Account from "./Pages/Midwife/Create_Account";
-
 
 const Layout1 = ()=>{
   return(
@@ -25,10 +8,6 @@ const Layout1 = ()=>{
       <Navbar/>
       <Outlet/>
 
-      
-      
-      {/* <SearchResults /> */}
-     
       {/* <Footer/> */}
     </div>
   );
@@ -47,7 +26,7 @@ const Layout2 = ()=>{
 
 const router = createBrowserRouter([
   {
-    path:"/parent",
+
     element:<Layout1/>,
     children:[
       {
@@ -90,63 +69,7 @@ const router = createBrowserRouter([
     element:<Layout2/>,
     children:[
       {
-        path:"/midwife/measure" ,
-        element:<Measure />,
-      },
-      {
-        path:"/midwife/baby_detail",
-        element:<Baby_Detail />,
 
-      },
-      {
-        path:"/midwife/vacc_detail",
-         element:<Vacc_Detail />,
-      },
-      {
-        path:"/midwife/consult_advices" ,
-        element:<Consult_Advices />,
-      },
-      {
-        path:"/midwife/marke_activity",
-        element:<Marke_Activity />,
-
-      },
-      {
-        path:"/midwife/create_account",
-        element:<Create_Account />,
-
-      },
-      
-      
-      
-    
-
-    ]
-
-  },
-
-
-]);
-// function App() {
-//   return (
-//     <div>
-//       <Router>
-//         <Header />
-//         <Navbar />
-
-//         <Routes>
-//           <Route exat path="/news" element={<News />} />
-//           <Route exat path="/growth" element={<Growth />} />
-//           <Route exat path="/develop" element={<Develop />} />
-//           <Route exat path="/vaccination" element={<Vaccination />} />
-//           <Route exat path="/health" element={<Health />} />
-//           <Route exat path="/consultation" element={<Consultation />} />
-//           <Route exat path="/calender" element={<Calendar />} />
-//         </Routes>
-//       </Router>
-//     </div>
-//   );
-// }
 
 function App(){
   return(
