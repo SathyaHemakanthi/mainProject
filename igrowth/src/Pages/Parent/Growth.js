@@ -105,12 +105,11 @@ export const options = {
     },
     title: {
       display: true,
-      // text: "Growth Chart",
     },
   },
 };
 
-const labels = ["0", "01", "02", "03", "04", "05", "06", "07", "08", "09"];
+const labels = ["0", "01", "02", "03", "04", "05", "06", "07", "08", "09","10","11","12","13","14","15","16","17","18","19","20"];
 
 const weightData = [0, 3, 4, 4.2, 4.1, 4.5, 5, 4.9];
 const heightData = [0, 60, 62, 69, 74, 79, 88, 90];
@@ -185,23 +184,21 @@ function Growth() {
 
       {showWeightGraph && (
         <div>
-          <Line options={options} data={weightChartData} />
+          <Line className="chart"  options={options} data={weightChartData} />
         </div>
       )}
 
       {showHeightGraph && (
         <div>
-          <Line options={options} data={heightChartData} />
+          <Line className="chart" options={options} data={heightChartData} />
         </div>
       )}
 
       {showHeadCircumferenceGraph && (
         <div>
-          <Line options={options} data={headCircumferenceChartData} />
+          <Line className="chart" options={options} data={headCircumferenceChartData} />
         </div>
       )}
-
-      Sathya
     </div>
   );
 }
