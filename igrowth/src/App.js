@@ -12,7 +12,8 @@ import Health from "./Pages/Parent/Health";
 import Consultation from "./Pages/Parent/Consultation";
 import Calendar from "./Pages/Parent/Vaccination";
 import Upload from "./Pages/Admin/Upload.js";
-import Login from "./Pages/Admin/Login.js";
+import Signup from "./Pages/Admin/Signup.js";
+import Signupchalana from "./Pages/Parent/Signupchalana.js"
 
 
 
@@ -109,6 +110,11 @@ const router = createBrowserRouter([
       {
         path:"/admin/upload" ,
         element:<Upload />,
+      },
+
+      {
+        path:"/admin/newsignup" ,
+        element:<Signupchalana />,
       },
 
     ]

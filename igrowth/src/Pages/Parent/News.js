@@ -1,6 +1,7 @@
 import React, { useState ,useEffect} from "react";
 import { Link } from 'react-router-dom';
 import './news.css';
+
 import img1 from './images/corona.jpg'
 import img2 from './images/nipha.jpeg'
 import img3 from './images/dengue.png'
@@ -63,7 +64,7 @@ function News() {
 
    <div className="n-container" key={i}>
 
-      <img src={n.image} className="img" alt="" />
+      <img src={`/uploads/${n.image}`}  className="img"  alt="" />
       <div class="right-side">
        
         <div class="paragraph-div-title">
