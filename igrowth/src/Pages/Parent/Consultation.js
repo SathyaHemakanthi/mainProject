@@ -17,9 +17,10 @@ function Consultation() {
           <div class="card-body">
             <img className="doctor" src={prof} alt="doctor" />
             <div className="right_side">
-              <h4 class="card-title">{d.activity_name}</h4>
-              <p class="card-text">{d.activity_id}</p>
-              <p class="card-contact">{d.activity_name}</p>
+              <h4 class="card-title">{d.name}</h4>
+              <h6 class="card-title">{d.position}</h6>
+              <p class="card-contact">{d.phone_number}</p>
+              <p class="card-text">{d.address}</p>
             </div>
           </div>
         </div>
@@ -28,4 +29,4 @@ function Consultation() {
   );
 }
 
-export default Consultation;
+export default Consultation;
