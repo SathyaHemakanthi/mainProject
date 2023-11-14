@@ -33,7 +33,7 @@ app.get('/development_activities',(req,res)=>{
 })
 
 app.get('/consultation', (req, res) => {
-    const sql = 'SELECT * FROM development_activities';
+    const sql = 'SELECT * FROM consultation';
     db.query(sql,(err, data)=>{
         if(err) return res.json(err);
         return res.json(data);
@@ -42,8 +42,6 @@ app.get('/consultation', (req, res) => {
 
   
 
-
-  // news get method
   app.get('/news', (req, res) => {
     const sql = 'SELECT * FROM news';
     db.query(sql,(err, data)=>{
