@@ -75,9 +75,4 @@ const Develop = () => {
     </div>
   );
 };
-
-<<<<<<< Updated upstream
 export default Develop; 
-=======
-export default Develop; 
->>>>>>> Stashed changes
