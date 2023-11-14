@@ -12,7 +12,7 @@ import Health from "./Pages/Parent/Health";
 import Consultation from "./Pages/Parent/Consultation";
 import Calendar from "./Pages/Parent/Vaccination";
 import Upload from "./Pages/Admin/Upload.js";
-import Signup from "./Pages/Admin/Signup.js";
+import Signup from "./Pages/Admin/Register.js";
 import Signupchalana from "./Pages/Parent/Signupchalana.js"
 import Write from "./Pages/Admin/Write.js";
 
@@ -104,7 +104,7 @@ const router = createBrowserRouter([
     element:<Layout2/>,
     children:[
       {
-        path:"/admin/signup" ,
+        path:"/admin/register" ,
         element:<Signup />,
       },
       {
