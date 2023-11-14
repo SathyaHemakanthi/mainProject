@@ -76,4 +76,8 @@ const Develop = () => {
   );
 };
 
+<<<<<<< Updated upstream
 export default Develop; 
+=======
+export default Develop; 
+>>>>>>> Stashed changes
