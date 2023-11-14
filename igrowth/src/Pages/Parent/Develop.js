@@ -74,4 +74,3 @@ const Develop = () => {
   );
 };
 
-export default Develop; 
