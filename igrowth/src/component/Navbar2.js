@@ -32,9 +32,7 @@ function Navbar2() {
 
       {showNavItems && (
         <>
-          <Link to='/midwife/news' className='nav-item'>Midwife News Feed</Link>
-          <Link to='/midwife/growth' className='nav-item'>Midwife Growth Tracker</Link>
-          <Link to='/midwife/uploads' className='nav-item'>News Upload</Link>
+
         </>
       )}
     </div>

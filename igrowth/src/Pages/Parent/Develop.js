@@ -1,3 +1,5 @@
+<<<<<<< SathyaHemakanththi
+=======
 import React, { useState, useEffect } from "react";
 import "./develop.css";
 
@@ -35,13 +37,13 @@ const Develop = () => {
   };
 
   return (
-    <div>
-      <table>
+    <div className="table_card">
+      <table className="table-top">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Status</th>
+            <th className="id-width" >ID</th>
+            <th className="name-width">Name</th>
+            <th className="status-width">Status</th>
           </tr>
         </thead>
         <tbody>
@@ -49,7 +51,7 @@ const Develop = () => {
             <tr key={i}>
               <td>{d.activity_id}</td>
               <td>{d.activity_name}</td>
-              <td>
+              <td className="table-input">
                 <input
                   type="radio"
                   value="Yes"
@@ -60,6 +62,7 @@ const Develop = () => {
                 <input
                   type="radio"
                   value="No"
+                  className="input-no"
                   checked={d.activity_status === "No"}
                   onChange={(e) => handleRadioChange(e, i)}
                 />
@@ -69,9 +72,10 @@ const Develop = () => {
           ))}
         </tbody>
       </table>
-      <button onClick={handleSubmit}>Submit</button>
+      <button className="submit_btn" onClick={handleSubmit}>Submit</button>
     </div>
   );
 };
 
 export default Develop; 
+>>>>>>> main
