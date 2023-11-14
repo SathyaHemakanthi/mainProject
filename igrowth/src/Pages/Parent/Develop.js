@@ -1,5 +1,4 @@
-<<<<<<< SathyaHemakanththi
-=======
+
 import React, { useState, useEffect } from "react";
 import "./develop.css";
 
@@ -76,6 +75,4 @@ const Develop = () => {
     </div>
   );
 };
-
 export default Develop; 
->>>>>>> main

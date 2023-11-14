@@ -29,4 +29,4 @@ function Consultation() {
   );
 }
 
-export default Consultation;
+export default Consultation;
