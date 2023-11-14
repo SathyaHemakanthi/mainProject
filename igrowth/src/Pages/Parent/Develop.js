@@ -73,4 +73,5 @@ const Develop = () => {
     </div>
   );
 };
+export default Develop;
 
