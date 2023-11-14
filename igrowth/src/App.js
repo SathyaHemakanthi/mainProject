@@ -1,26 +1,7 @@
-import {ReactDOM} from "react";
-import { createBrowserRouter , RouterProvider, Route, Outlet} from "react-router-dom";
-import { ScheduleComponent } from "@syncfusion/ej2-react-schedule";
-import Navbar from "./component/Navbar";
-import Navbar2 from "./component/Navbar2";
-import Header from "./component/Header";
-import News from "./Pages/Parent/News";
-import Growth from "./Pages/Parent/Growth";
-import Develop from "./Pages/Parent/Develop";
-import Vaccination from "./Pages/Parent/Vaccination";
-import Health from "./Pages/Parent/Health";
-import Consultation from "./Pages/Parent/Consultation";
-import Calendar from "./Pages/Parent/Vaccination";
-import Upload from "./Pages/Admin/Upload.js";
-import Signup from "./Pages/Admin/Signup.js";
-
-import Write from "./Pages/Admin/Write.js";
 
 
-
-
-const Layout1 = ()=>{
-  return(
+function App() {
+  return (
     <div>
       <Header/>
       <Navbar/>
@@ -129,6 +110,7 @@ function App(){
       
         <RouterProvider router={router} />
       
+
     </div>
   );
 }

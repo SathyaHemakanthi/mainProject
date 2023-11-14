@@ -32,12 +32,12 @@ function Navbar() {
 
       {showNavItems && (
         <>
-          <Link to='/parent/news' className='nav-item'>News Feed</Link>
-          <Link to='/parent/growth' className='nav-item'>Growth Tracker</Link>
-          <Link to='/parent/develop' className='nav-item'>Development Tracker</Link>
-          <Link to='/parent/vaccination' className='nav-item'>Vaccination Tracker</Link>
-          <Link to='/parent/health' className='nav-item'>Health Tips</Link>
-          <Link to='/parent/consultation' className='nav-item'>Consultations</Link>
+          <Link to='/news' className='nav-item'>News Feed</Link>
+          <Link to='/growth' className='nav-item'>Growth Tracker</Link>
+          <Link to='/develop' className='nav-item'>Development Tracker</Link>
+          <Link to='/vaccination' className='nav-item'>Vaccination Tracker</Link>
+          <Link to='/health' className='nav-item'>Health Tips</Link>
+          <Link to='/consultation' className='nav-item'>Consultations</Link>
         </>
       )}
     </div>
