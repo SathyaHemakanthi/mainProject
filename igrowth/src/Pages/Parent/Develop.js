@@ -1,206 +1,69 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import "./develop.css";
 
 const Develop = () => {
-  const handleChange = (e) => {
-    const value = e.target.value;
-    const checked = e.target.checked;
-    console.log(value, checked);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Fetch data from the API and update the state
+    fetch("http://localhost:8081/development_activities")
+      .then((res) => res.json())
+      .then((data) => setData(data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const handleRadioChange = (event, index) => {
+    const newData = [...data];
+    newData[index].activity_status = event.target.value;
+    setData(newData);
   };
-  
+
+  const handleSubmit = () => {
+    // Send the updated data to the server
+    fetch("http://localhost:8081/update_development_activities", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((response) => { 
+        console.log(response);
+      })
+      .catch((err) => console.error(err));
+  };
+
   return (
     <div>
-      <form>
-        <table className="custom-table">
-          <tbody>
-            <br />
-
-            <div className='develop_con'>
-              <div className="deve_border">
-                <br/>
-           
-            <label className="month2" htmlFor="">
-              At 2 months of age:
-            </label>
-            <br />
-           
-           
-
-            <tr className="question-row">
-              <td className="table_data">
-                <label htmlFor="">
-                  1. Does not respond to sounds.
-                </label>
-              </td>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((d, i) => (
+            <tr key={i}>
+              <td>{d.activity_id}</td>
+              <td>{d.activity_name}</td>
               <td>
                 <input
-                  type="checkbox"
-                  className="result"
-                  value="Yes1"
-                  onChange={handleChange}
+                  type="radio"
+                  value="Yes"
+                  checked={d.activity_status === "Yes"}
+                  onChange={(e) => handleRadioChange(e, i)}
                 />
-                <label htmlFor="">&nbsp;Yes</label>
-                &nbsp;&nbsp;&nbsp;
+                Yes
                 <input
-                  type="checkbox"
-                  className="result"
-                  value="No1"
-                  onChange={handleChange}
+                  type="radio"
+                  value="No"
+                  checked={d.activity_status === "No"}
+                  onChange={(e) => handleRadioChange(e, i)}
                 />
-                <label htmlFor="">&nbsp;No</label>
-              </td>
-            </tr>
-
-            <tr className="question-row">
-              <td className="table_data">
-                <label htmlFor="">
-                  2. Does not look at moving objects.
-                </label>
-              </td>
-              <td>
-                <input
-                  type="checkbox"
-                  className="result"
-                  value="Yes2"
-                  onChange={handleChange}
-                />
-                <label htmlFor="">&nbsp;Yes</label>
-                &nbsp;&nbsp;&nbsp;
-                <input
-                  type="checkbox"
-                  className="result"
-                  value="No2"
-                  onChange={handleChange}
-                />
-                <label htmlFor="">&nbsp;No</label>
-              </td>
-            </tr>
-
-            <tr className="question-row">
-              <td>
-                <label htmlFor="">
-                  3. Not smiling back at you.&
-                </label>
-              </td>
-              <td>
-                <input
-                  type="checkbox"
-                  className="result"
-                  value="Yes1"
-                  onChange={handleChange}
-                />
-                <label htmlFor="">&nbsp;Yes</label>
-                &nbsp;&nbsp;&nbsp;
-                <input
-                  type="checkbox"
-                  className="result"
-                  value="No1"
-                  onChange={handleChange}
-                />
-                <label htmlFor="">&nbsp;No</label>
-              </td>
-            </tr>
-
-            <tr className="question-row">
-              <td>
-                <label htmlFor="">
-                  4. Hands are not close to the mouth.&nbsp;&nbsp;&nbsp;&nbsp;
-                </label>
-              </td>
-              <td>
-                <input
-                  type="checkbox"
-                  className="result"
-                  value="Yes1"
-                  onChange={handleChange}
-                />
-                <label htmlFor="">&nbsp;Yes</label>
-                &nbsp;&nbsp;&nbsp;
-                <input
-                  type="checkbox"
-                  className="result"
-                  value="No1"
-                  onChange={handleChange}
-                />
-                <label htmlFor="">&nbsp;No</label>
-              </td>
-            </tr>
-
-            <tr className="question-row">
-              <td>
-                <label htmlFor="">
-                  5. Does not try to raise the head while being held
-                  down.&nbsp;&nbsp;&nbsp;&nbsp;
-                </label>
-              </td>
-
-              
-              <td>
-              
-             
-                <input
-                  type="checkbox"
-                  className="result"
-                  value="Yes1"
-                  onChange={handleChange}
-                />
-                <label htmlFor="">&nbsp;Yes</label>
-                &nbsp;&nbsp;&nbsp;
-                <input
-                  type="checkbox"
-                  className="result"
-                  value="No1"
-                  onChange={handleChange}
-                />
-                <label htmlFor="">&nbsp;No</label>
-              </td>
-            </tr>
-            </div>
-           
-            <br />
-            <br />
-            <input className="btn-submit" type="submit" value="submit" />
-            <br />
-            <br />
-
-            </div>
-
-            </tbody>
-            </table>
-
-            <table className="custom-table">
-              <tbody>
-
-            <div className='develop_con_2'>
-              <div className="deve_border">
-
-            <label className="month2" htmlFor="">
-              At 4 months of age:
-            </label>
-            <br />
-            <tr className="question-row">
-              <td>
-                <label htmlFor="">
-                  1. Does not look at moving objects.&nbsp;&nbsp;&nbsp;&nbsp;
-                </label>
-              </td>
-              <td>
-                <input
-                  type="checkbox"
-                  className="result"
-                  value="Yes1"
-                  onChange={handleChange}
-                />
-                <label htmlFor="">&nbsp;Yes</label>
-                &nbsp;&nbsp;&nbsp;
-                <input
-                  type="checkbox"
-                  className="result"
-                  value="No1"
-                  onChange={handleChange}
-                />
-                <label htmlFor="">&nbsp;No</label>
+                No
               </td>
             </tr>
 
@@ -622,16 +485,10 @@ const Develop = () => {
             </tbody>
             </table>
 
-            {/* <table>
-              <tbody> */}
+            <table>
+              <tbody>
 
-              <table className="custom-table">
-          <tbody>
-            <br />
 
-            <div className='develop_con'>
-              <div className="deve_border">
-                <br/>
             <label className="month2" htmlFor="">
               At 9 months of age:
             </label>
@@ -844,11 +701,6 @@ const Develop = () => {
             <input className="btn-submit" type="submit" value="submit" />
             <br />
             <br />
-            </div>
-            </div>
-
-       
-         
 
             <label className="month2" htmlFor="">
               At 12 months of age:
@@ -2326,5 +2178,5 @@ const Develop = () => {
     </div>
   );
 };
-
 export default Develop;
+

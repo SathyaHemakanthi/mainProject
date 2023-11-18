@@ -128,4 +128,4 @@ function Growth() {
   );
 }
 
-export default Growth;
+export default Growth;
