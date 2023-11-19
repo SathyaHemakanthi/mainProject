@@ -93,29 +93,71 @@ app.post('/igrowth/signup',(req, res)=>{
 //     })
 // })
 
+
+// const storage = multer.diskStorage({
+//   destination: 'uploads/',
+//   filename: function (req, file, callback) {
+//     callback(null, file.fieldname + '-' + Date.now() + file.originalname);
+//   },
+// });
+
+// const upload = multer({ storage: storage });
+
+// app.post('/igrowth/news', upload.single('image'), (req, res) => {
+//   const { title, content } = req.body;
+//   const image = req.file ? 'uploads/' + req.file.filename : null;
+
+//   const sql = 'INSERT INTO news (title, content, image) VALUES (?, ?, ?)';
+//   const values = [title, content, image];
+
+//   db.query(sql, values, (err, data) => {
+//     if (err) return res.json(err);
+//     return res.json(data);
+//   });
+// });
+
 const storage = multer.diskStorage({
-  destination: 'uploads/',
+  destination: function (req, file, callback) {
+    callback(null, 'uploads/');
+  },
   filename: function (req, file, callback) {
-    callback(null, file.fieldname + '-' + Date.now() + file.originalname);
+    callback(null, Date.now() + path.extname(file.originalname));
   },
 });
 
 const upload = multer({ storage: storage });
+app.use(express.urlencoded({ extended: true }));
 
-app.post('/igrowth/news', upload.single('image'), (req, res) => {
-  const { title, content } = req.body;
-  const image = req.file ? 'uploads/' + req.file.filename : null;
-
-  const sql = 'INSERT INTO news (title, content, image) VALUES (?, ?, ?)';
-  const values = [title, content, image];
-
-  db.query(sql, values, (err, data) => {
-    if (err) return res.json(err);
-    return res.json(data);
-  });
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
 });
 
+app.use('./Backend/uploads', express.static('uploads'));
 
+app.post('/igrowth/news', upload.single('image'), (req, res) => {
+  try {
+    const { title, content } = req.body;
+    const imagePath = req.file ? 'uploads/' + req.file.filename : null;
+
+    const sql = 'INSERT INTO news (title, content, image) VALUES (?, ?, ?)';
+    const values = [title, content, imagePath];
+
+    db.query(sql, values, (err, data) => {
+      if (err) {
+        console.error('Error executing SQL query:', err);
+        return res.status(500).json({ error: 'Internal Server Error' });
+      }
+
+      res.status(200).json({ message: 'Form submitted successfully', imagePath });
+    });
+  } catch (error) {
+    console.error('Error processing form submission:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 
 //consultation
