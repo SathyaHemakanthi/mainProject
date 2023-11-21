@@ -9,9 +9,12 @@ function Upload() {
   const [values, setValues] = useState({
     title: '',
     content: '',
+    
   });
 
-  const [image, setImage] = useState(null);
+  const [fimage, setImage] = useState({
+    image: null,
+  });
   const navigate = useNavigate();
 
   const handleChange = (content) => {
@@ -26,13 +29,13 @@ function Upload() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!values.title || !values.content || !image) {
+    if (!values.title || !values.content || !fimage) {
       alert("Enter data for all fields");
     } else {
       const formData = new FormData();
       formData.append("title", values.title);
       formData.append("content", values.content);
-      formData.append("image", image);
+      formData.append("image", fimage);
 
       axios.post("http://localhost:8081/igrowth/news", formData, {
         headers: {
@@ -54,7 +57,7 @@ function Upload() {
         <div className="editorContainer">
           <ReactQuill theme='snow' value={values.content} onChange={handleChange} />
         </div>
-        <input type="file" name="image" onChange={handleImageChange} accept="image/*" />
+        <input type="file" name="image"  onChange={handleImageChange} accept="image/*" />
         <div className="item">
           <div className="buttons">
             <input type="submit" value="Upload" name="submit-btn" />
