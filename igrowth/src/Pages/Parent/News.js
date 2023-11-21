@@ -65,7 +65,7 @@ function News() {
 
    <div className="n-container" key={i}>
 
-      <img src={n.image}  className="img"  alt="" />
+      <img src={'http://localhost:8080/parent/'+n.Image}  className="img"  alt="" />
       <div class="right-side">
        
         <div class="paragraph-div-title">

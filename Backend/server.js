@@ -78,20 +78,7 @@ app.post('/igrowth/signup',(req, res)=>{
 })
 //For post method news
 
-// app.post('/igrowth/news',(req, res)=>{
- 
-//   const sql = "INSERT INTO news (title, content) VALUES (?)";
-//   const Values=[ 
-//     req.body.title, 
-//     req.body.content, 
-//   ];
 
-  
-//   db.query(sql,[Values],(err,data)=>{
-//       if(err) return res.json(err);
-//       return res.json(data);
-//     })
-// })
 
 const storage = multer.diskStorage({
   destination: 'uploads/',
@@ -114,7 +101,6 @@ app.post('/igrowth/news', upload.single('image'), (req, res) => {
     return res.json(data);
   });
 });
-
 
 
 
