@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReactQuill from "react-quill";
-import 'react-quill/dist/quill.snow.css'
+import 'react-quill/dist/quill.snow.css';
 import './write.css';
 
 function Upload() {
@@ -11,23 +11,37 @@ function Upload() {
     content: '',
   });
 
-  const navigate = useNavigate(); // Declare navigate
+  const [image, setImage] = useState(null);
+  const navigate = useNavigate();
 
   const handleChange = (content) => {
     setValues({ ...values, content });
   }
-  
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    setImage(file);
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!values.title || !values.content) {
+    if (!values.title || !values.content || !image) {
       alert("Enter data for all fields");
     } else {
-      axios.post("http://localhost:8081/igrowth/news", values)
+      const formData = new FormData();
+      formData.append("title", values.title);
+      formData.append("content", values.content);
+      formData.append("image", image);
+
+      axios.post("http://localhost:8081/igrowth/news", formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
         .then((res) => {
           alert("Upload success");
-          navigate('/parent/news'); // Use navigate to go to another route
+          navigate('/parent/news');
         })
         .catch((err) => console.log(err));
     }
@@ -40,6 +54,7 @@ function Upload() {
         <div className="editorContainer">
           <ReactQuill theme='snow' value={values.content} onChange={handleChange} />
         </div>
+        <input type="file" name="image" onChange={handleImageChange} accept="image/*" />
         <div className="item">
           <div className="buttons">
             <input type="submit" value="Upload" name="submit-btn" />
