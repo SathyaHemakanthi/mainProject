@@ -64,10 +64,11 @@ li {
   background-color: #f2f2f2;
   padding: 20px;
   text-align: center;
+  width: 60%;
 }
 
 .App-header {
-  background-color: #007bff;
+  background-color: rgb(224, 171, 234);
   color: #fff;
   padding: 20px;
   border-radius: 5px;

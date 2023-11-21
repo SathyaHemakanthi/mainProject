@@ -81,7 +81,8 @@ function Calendar1() {
   }
 
   return (
-    <div className="App">
+    <>
+    <div className="Calender-border">
       <div class="cale">
         <Calendar
           localizer={localizer}
@@ -91,14 +92,17 @@ function Calendar1() {
           views={['month', 'week']} 
         />
       </div>
-      <div className="app-container">
-        <div className="left-side">
-          <UpcomingEvents events={allEvents} />
-          <VaccinationHistory history={vaccinationHistory} />
-        </div>
-        {/* Add your right-side content here */}
-      </div>
+      
     </div>
+
+<div className="app-container">
+<div className="left-side">
+  <UpcomingEvents events={allEvents} />
+  <VaccinationHistory history={vaccinationHistory} />
+</div>
+{/* Add your right-side content here */}
+</div>
+</>
   );
 }
 
