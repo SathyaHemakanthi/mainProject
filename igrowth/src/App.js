@@ -194,28 +194,12 @@ import Measure from "./Pages/Midwife/Measure";
 import Baby_Detail from "./Pages/Midwife/Baby_Detail";
 import Vacc_Detail from "./Pages/Midwife/Vacc_Detail";
 import Consult_Advices from "./Pages/Midwife/Consult_Advices";
-import Marke_Activity from "./Pages/Midwife/Marke_Activity";
+import View_Development from "./Pages/Midwife/View_Development";
 import Create_Account from "./Pages/Midwife/Create_Account";
 import Vaccination1 from "./Pages/Midwife/Vaccination1";
          
 
-import Navbar from "./component/Navbar";
-import Navbar2 from "./component/Navbar2";
-import Header from "./component/Header";
-import News from "./Pages/Parent/News";
-import Growth from "./Pages/Parent/Growth";
-import Develop from "./Pages/Parent/Develop";
-import Vaccination from "./Pages/Parent/Vaccination";
-import Health from "./Pages/Parent/Health";
-import Consultation from "./Pages/Parent/Consultation";
-import Calendar from "./Pages/Parent/Vaccination";
 
-import Measure from "./Pages/Midwife/Measure";
-import Baby_Detail from "./Pages/Midwife/Baby_Detail";
-import Vacc_Detail from "./Pages/Midwife/Vacc_Detail";
-import Consult_Advices from "./Pages/Midwife/Consult_Advices";
-import Marke_Activity from "./Pages/Midwife/Marke_Activity";
-import Create_Account from "./Pages/Midwife/Create_Account";
 
 
 
@@ -312,8 +296,8 @@ const router = createBrowserRouter([
         element:<Consult_Advices />,
       },
       {
-        path:"/midwife/marke_activity",
-        element:<Marke_Activity />,
+        path:"/midwife/view_development",
+        element:<View_Development />,
 
       },
       {
