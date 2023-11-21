@@ -1,65 +1,61 @@
+/* .yes_no{
+    margin-left: 1000px;
+} */
+.month2{
+    font-weight:bolder;
+}
 
+/* .result{
+   margin-left: 10px;
+   
+} */
+.develop_con{
+  align-items: center;
+  background-color: rgb(191, 243, 230);
+  width: 100%;
+  margin-left:10%;
 
-  .submit_btn{
-  border-radius: 10px;
-  margin-top: 20px ;
-  margin-left: 600px;
-  margin-bottom: 20px;
-  background-color:rgb(14, 239, 190) ;
+}
+
+.develop_con_2{
+  background-color: rgb(129, 203, 106);
+  margin-left: 10%;
+  width: 100%;
+}
+
+.custom-table, th, td {
+    width: 80%;
+    border: 1px ;
   }
 
-  .submit_btn:hover{
-    background-color:  rgb(43, 149, 201);
+  .question-row{
+    height: 15px; 
+    width: 60%;
+  }
+
+  .btn-submit{
+    background-color: lavender;
+    border-radius: 5px;
+    margin-left: 450px;
+  }
+
+  .btn-submit_2{
+    background-color: lavender;
+    border-radius: 5px;
+    margin-left: 650px;
+  }
+
+  .btn-submit:hover{
+    
+    background-color: rgb(14, 239, 190);
     
   }
 
-  .table_card{
-    /* background-color: aquamarine;
-    width: 400px;
-    height: 200px;
-    margin-left: 50px; */
+
+
+  .deve_border{
+   margin-left: 200px;
     
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 800px;
-      margin: 30px auto;
-      border-radius: 15px;
-      background-color: rgb(225, 234, 235);
-      border: 1px solid rgb(47, 22, 104);
-      box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.5);
-    }
-  
-
-  .table-top{
-    margin: 30px 20px auto;
   }
-
-  /* .table-input{
-    padding-left: 50px;
-  } */
-
-  
- 
- .id-width{
-  width: 50px;
- }
-
- .name-width{
-  width: 400px;
- }
-
- .status-width{
-  width: 100px;
- }
-
- .input-no{
-  margin-left: 10px;
- }
-
-  /* .aa th {
-    padding-right: 20px; 
-  }
-   */
 
  

@@ -38,6 +38,7 @@ function Navbar2() {
           <Link to='/midwife/Consult_Advices' className='nav-item'>Consultation Advices</Link>
           <Link to='/midwife/Marke_Activity' className='nav-item'>Marked Activities</Link>
           <Link to='/midwife/Create_Account' className='nav-item'>Create Account</Link>
+
         </>
       )}
     </div>
@@ -45,3 +46,4 @@ function Navbar2() {
 }
 
 export default Navbar2;
+
