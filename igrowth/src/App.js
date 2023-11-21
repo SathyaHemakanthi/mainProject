@@ -15,7 +15,7 @@ import Measure from "./Pages/Midwife/Measure";
 import Baby_Detail from "./Pages/Midwife/Baby_Detail";
 import Vacc_Detail from "./Pages/Midwife/Vacc_Detail";
 import Consult_Advices from "./Pages/Midwife/Consult_Advices";
-import Marke_Activity from "./Pages/Midwife/Marke_Activity";
+import View_Development from "./Pages/Midwife/View_Development";
 import Create_Account from "./Pages/Midwife/Create_Account";
 import Vaccination1 from "./Pages/Midwife/Vaccination1";
          
@@ -105,8 +105,9 @@ const router = createBrowserRouter([
         element:<Consult_Advices />,
       },
       {
-        path:"/midwife/marke_activity",
-        element:<Marke_Activity />,
+        path:"/midwife/view_development",
+        element:<View_Development />,
+
       },
       {
         path:"/midwife/create_account",
