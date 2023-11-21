@@ -12,6 +12,7 @@ function Consultation() {
   }, []);
   return (
     <div>
+        
       {data.map((d, i) => (
         <div class="card" key={i}>
           <div class="card-body">
@@ -25,6 +26,8 @@ function Consultation() {
           </div>
         </div>
       ))}
+
+      
     </div>
   );
 }

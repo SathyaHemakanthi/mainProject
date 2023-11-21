@@ -67,11 +67,9 @@ const Develop = () => {
               </td>
             </tr>
           ))}
-        </tbody>
-      </table>
-      <button onClick={handleSubmit}>Submit</button>
-    </div>
-  );
-};
-export default Develop;
+            </tbody>
+            </table>
+            </div>
+  )}
 
+export default Develop;

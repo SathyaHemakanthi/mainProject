@@ -124,8 +124,8 @@ app.get('/consultation', (req, res) => {
   db.query(sql,(err, data)=>{
       if(err) return res.json(err);
       return res.json(data);
-    });
-  });
+});
+});
 
 
 app.listen(8081,()=>{
