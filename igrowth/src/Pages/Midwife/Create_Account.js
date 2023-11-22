@@ -25,8 +25,18 @@ function Create_Account() {
       <h2>Enter Baby Details</h2>
       
       <form onSubmit={handleSubmit}>
+      <div className="form-group">
+          <label htmlFor="child-id">Child ID:</label>
+          <input
+            type="number"
+            id="child-id"
+            name="child-id"
+            value={baby.id}
+            onChange={handleInputChange}
+          />
+        </div>
         <div className="form-group">
-          <label htmlFor="name">Baby's Name:</label>
+          <label htmlFor="name">Child's Full Name:</label>
           <input
             type="text"
             id="name"
@@ -66,12 +76,63 @@ function Create_Account() {
           />
         </div>
         <div className="form-group">
+          <label htmlFor="birthCerNo">Birth Certificate Number:</label>
+          <input
+            type="number"
+            id="birthCerNo"
+            name="birthCerNo"
+            value={baby.birthCerNo}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group">
           <label htmlFor="parentName">Parent's Name:</label>
           <input
             type="text"
             id="parentName"
             name="parentName"
             value={baby.parentName}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="parentAddress">Parent's Address:</label>
+          <input
+            type="text"
+            id="parentAddress"
+            name="parentAddress"
+            value={baby.parentAddress}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="parentNic">Parent's NIC:</label>
+          <input
+            type="text"
+            id="parentNic"
+            name="parentNic"
+            value={baby.parentNic}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="regNo">Registration Number:</label>
+          <input
+            type="number"
+            id="regNo"
+            name="regNo"
+            value={baby.regNo}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="regDate">Registration Date:</label>
+          <input
+            type="date"
+            id="regDate"
+            name="regDate"
+            value={baby.regDate}
             onChange={handleInputChange}
           />
         </div>
