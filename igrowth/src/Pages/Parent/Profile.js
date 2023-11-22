@@ -30,21 +30,7 @@ function Profile() {
     // If an image is selected, simulate sending it to the server
     if (image) {
       console.log('Image upload simulated:', image.name);
-      // Replace 'your-server-url' with the actual server URL for image upload
-      // const formData = new FormData();
-      // formData.append('image', image);
-      //
-      // try {
-      //   const response = await fetch('your-server-url', {
-      //     method: 'POST',
-      //     body: formData,
-      //   });
-      //   const responseData = await response.json();
-      //   console.log('Image upload response:', responseData);
-      //   // You can handle the server's response here
-      // } catch (error) {
-      //   console.error('Image upload error:', error);
-      // }
+     
     }
   };
 
