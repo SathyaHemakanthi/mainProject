@@ -1,5 +1,6 @@
 import React, { useState ,useEffect} from "react";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './news.css';
 
 
@@ -14,12 +15,16 @@ import img6 from './images/helth04.jpg'
 
 function News() {
   const [news, setData] = useState([]);
+
   useEffect(() => {
     fetch("http://localhost:8081/news")
       .then((res) => res.json())
       .then((news) => setData(news))
       .catch((err) => console.log(err));
   }, []);
+
+
+
 
   return (
     
@@ -65,7 +70,7 @@ function News() {
 
    <div className="n-container" key={i}>
 
-      <img src={'http://localhost:8080/parent/'+n.Image}  className="img"  alt="" />
+      <img src={`./images/${n.image}`} className="img" alt=""  />
       <div class="right-side">
        
         <div class="paragraph-div-title">
