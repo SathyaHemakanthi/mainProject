@@ -6,6 +6,7 @@ const getNews = (callback) => {
   db.query(sql, callback);
 };
 
+
 const insertNews = (values, callback) => {
   const sql = 'INSERT INTO news (title, content, image) VALUES (?, ?, ?)' ;
   db.query(sql, values, callback);

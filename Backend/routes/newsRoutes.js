@@ -28,4 +28,5 @@ router.post('/igrowth/news', upload.single('image'), newsController.insertNews);
 
 router.get('/', (req, res) => { return res.json('From news route'); });
 router.get('/news', newsController.getNews);
+
 module.exports = router;

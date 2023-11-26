@@ -208,6 +208,7 @@ import Write from "./Pages/Admin/Write.js";
 
 
 
+
 const Layout1 = ()=>{
   return(
     <div>
@@ -273,7 +274,6 @@ const router = createBrowserRouter([
         path:"/parent/logout",
          element:<Logout />,
       },
-
     ]
 
   },
