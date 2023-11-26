@@ -274,6 +274,7 @@ const router = createBrowserRouter([
         path:"/parent/logout",
          element:<Logout />,
       },
+    
     ]
 
   },
