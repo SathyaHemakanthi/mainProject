@@ -70,7 +70,7 @@ function News() {
 
    <div className="n-container" key={i}>
 
-      <img src={`../igrowth/src/Pages/Parent/images${n.image}`} className="img" alt=""  />
+      <img src={n.url} className="img" alt=""  />
       <div class="right-side">
        
         <div class="paragraph-div-title">

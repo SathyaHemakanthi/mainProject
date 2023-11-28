@@ -8,25 +8,25 @@ const path = require('path');
 const storage = multer.diskStorage({
   destination: 'uploads/',
   filename: function (req, file, callback) {
-    callback(null, file.fieldname + '-' + Date.now() + file.originalname);
+    callback(null, file.fieldname  + file.originalname);
   },
 });
 
-// const storage = multer.diskStorage({
-//   destination:(req, file, callback) =>{
-//     callback(null, "../igrowth/src/Pages/Parent/images")
-//   } ,
 
-//   filename: function (req, file, callback) {
-//     callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-//   },
-// });
 
-const upload = multer({ storage: storage });
-
-router.post('/igrowth/news', upload.single('image'), newsController.insertNews);
-
-router.get('/', (req, res) => { return res.json('From news route'); });
+const upload = multer({storage: storage,
+  limits: { fileSize: 5000000 },
+  fileFilter: (req, file, cb) => {
+    const allowedTypes = ['.png', '.jpg', '.jpeg'];
+    const ext = path.extname(file.originalname);
+    if (allowedTypes.includes(ext.toLowerCase())) {
+      cb(null, true);
+    } else {
+      cb(new Error('Invalid Images'));
+    }
+  } 
+});
+router.post('/news', upload.single('image'), newsController.insertNews);
 router.get('/news', newsController.getNews);
 
 module.exports = router;

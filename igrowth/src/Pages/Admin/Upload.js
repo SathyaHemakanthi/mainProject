@@ -37,7 +37,7 @@ function Upload() {
       formData.append("content", values.content);
       formData.append("image", fimage);
 
-      axios.post("http://localhost:8081/igrowth/news", formData, {
+      axios.post("http://localhost:8081/news", formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

@@ -202,6 +202,7 @@ import Upload from "./Pages/Admin/Upload.js";
 import Signup from "./Pages/Admin/Signup.js";
 
 import Write from "./Pages/Admin/Write.js";
+import NewsTemp from "./Pages/Parent/NewsTemp.js";
 
 
 
@@ -273,6 +274,10 @@ const router = createBrowserRouter([
       },{
         path:"/parent/logout",
          element:<Logout />,
+      },
+      {
+        path:"/parent/newstemp",
+         element:<NewsTemp />,
       },
     
     ]

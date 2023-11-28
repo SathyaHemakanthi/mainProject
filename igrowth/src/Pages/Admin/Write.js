@@ -1,98 +1,94 @@
-// App.js
-
-import React, { useState } from 'react';
 import axios from 'axios';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ReactQuill from "react-quill";
+import 'react-quill/dist/quill.snow.css';
+import './write.css';
 
+function Write() {
+  const [title, setTitle] = useState("");
+  const [file, setFile] = useState("");
+  const [preview, setPreview] = useState("");
+  const navigate = useNavigate();
 
-export default function Write() {
-  const [formValues, setFormValues] = useState({
-    meal_name: '',
-    size: '',
-    price: '',
-    image: null,
-  });
-
-  const handleInputChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  const loadImage = (e) => {
+    const image = e.target.files[0];
+    setFile(image);
+    setPreview(URL.createObjectURL(image));
   };
 
-  const handleFileChange = (e) => {
-    setFormValues({ ...formValues, image: e.target.files[0] });
-  };
-
-  const handleSubmit = async (e) => {
+  const saveNews = async (e) => {
     e.preventDefault();
-
     const formData = new FormData();
-    formData.append('meal_name', formValues.meal_name);
-    formData.append('size', formValues.size);
-    formData.append('price', formValues.price);
-    formData.append('image', formValues.image);
-
+    formData.append("file", file);
+    formData.append("title", title);
     try {
-      const response = await axios.post(
-        'http://localhost:8080/igrowth/users',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        }
-      );
-
-      console.log(response.data);
-      alert('Form submitted successfully');
+      await axios.post("http://localhost:8081/news", formData, {
+        headers: {
+          "Content-type": "multipart/form-data",
+        },
+      });
+      navigate("/parent/news");
     } catch (error) {
-      console.error(error);
-      alert('Error submitting form');
+      console.log(error);
     }
   };
 
   return (
-    <div>
-      
-      <form onSubmit={handleSubmit} className='formam'>
-        <h>Add your meal</h>
-      <label className='labelam'>Meal Name:</label>
-          <input
-            type="text"
-            name="meal_name"
-            value={formValues.meal_name}
-            onChange={handleInputChange}
-            className='inputam'
-          />
-        
-        <br />
-        <label className='labelam'>Size:</label>
-          <input
-            type="text"
-            name="size"
-            value={formValues.size}
-            onChange={handleInputChange}
-            className='inputam'
-          />
+    <div className="columns is-centered mt-5">
+      <div className="column is-half">
+        <form onSubmit={saveNews}>
+          <div className="field">
+            <label className="label">Product Name</label>
+            <div className="control">
+              <input
+                type="text"
+                className="input"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Product Name"
+              />
+            </div>
+          </div>
 
-        <br/>
-        <label className='labelam'>Price:</label>
-          <input
-            type="text"
-            name="price"
-            value={formValues.price}
-            onChange={handleInputChange}
-            className='inputam'
-          />
+          <div className="field">
+            <label className="label">Image</label>
+            <div className="control">
+              <div className="file">
+                <label className="file-label">
+                  <input
+                    type="file"
+                    className="file-input"
+                    onChange={loadImage}
+                  />
+                  <span className="file-cta">
+                    <span className="file-label">Choose a file...</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
 
-        <br/>
-        
+          {preview ? (
+            <figure className="image is-128x128">
+              <img src={preview} alt="Preview Image" />
+            </figure>
+          ) : (
+            ""
+          )}
 
-        <label className='labelam'>
-          Image:
-          </label>
-          <input type="file" name="image" onChange={handleFileChange} className='inputam'/>
-        
-        <br />
-        <button type="submit" className='butam'>Submit</button>
-      </form>
+          <div className="field">
+            <div className="control">
+              <button type="submit" className="button is-success">
+                Save
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
-}
+};
+  
+
+export default Write;
