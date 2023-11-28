@@ -1,68 +1,98 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import ReactQuill from "react-quill";
-import 'react-quill/dist/quill.snow.css';
-import './write.css';
+// App.js
 
-function Upload() {
-  const [values, setValues] = useState({
-    title: '',
-    content: '',
+import React, { useState } from 'react';
+import axios from 'axios';
+
+
+export default function Write() {
+  const [formValues, setFormValues] = useState({
+    meal_name: '',
+    size: '',
+    price: '',
+    image: null,
   });
 
-  const [image, setImage] = useState(null);
-  const navigate = useNavigate();
+  const handleInputChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
 
-  const handleChange = (content) => {
-    setValues({ ...values, content });
-  }
+  const handleFileChange = (e) => {
+    setFormValues({ ...formValues, image: e.target.files[0] });
+  };
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    setImage(file);
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+    const formData = new FormData();
+    formData.append('meal_name', formValues.meal_name);
+    formData.append('size', formValues.size);
+    formData.append('price', formValues.price);
+    formData.append('image', formValues.image);
 
-    if (!values.title || !values.content || !image) {
-      alert("Enter data for all fields");
-    } else {
-      const formData = new FormData();
-      formData.append("title", values.title);
-      formData.append("content", values.content);
-      formData.append("image", image);
-
-      axios.post("http://localhost:8081/igrowth/news", formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
+    try {
+      const response = await axios.post(
+        'http://localhost:8080/igrowth/users',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
         }
-      })
-        .then((res) => {
-          alert("Upload success");
-          navigate('/parent/news');
-        })
-        .catch((err) => console.log(err));
+      );
+
+      console.log(response.data);
+      alert('Form submitted successfully');
+    } catch (error) {
+      console.error(error);
+      alert('Error submitting form');
     }
-  }
+  };
 
   return (
-    <div className='pwrite'>
-      <form onSubmit={handleSubmit}>
-        <input className="tint" type='text' placeholder='Title' name='title' id='title' onChange={(e) => setValues({ ...values, title: e.target.value })} />
-        <div className="editorContainer">
-          <ReactQuill theme='snow' value={values.content} onChange={handleChange} />
-        </div>
-        <input type="file" name="image" onChange={handleImageChange} accept="image/*" />
-        <div className="item">
-          <div className="buttons">
-            <input type="submit" value="Upload" name="submit-btn" />
-          </div>
-        </div>
+    <div>
+      
+      <form onSubmit={handleSubmit} className='formam'>
+        <h>Add your meal</h>
+      <label className='labelam'>Meal Name:</label>
+          <input
+            type="text"
+            name="meal_name"
+            value={formValues.meal_name}
+            onChange={handleInputChange}
+            className='inputam'
+          />
+        
+        <br />
+        <label className='labelam'>Size:</label>
+          <input
+            type="text"
+            name="size"
+            value={formValues.size}
+            onChange={handleInputChange}
+            className='inputam'
+          />
+
+        <br/>
+        <label className='labelam'>Price:</label>
+          <input
+            type="text"
+            name="price"
+            value={formValues.price}
+            onChange={handleInputChange}
+            className='inputam'
+          />
+
+        <br/>
+        
+
+        <label className='labelam'>
+          Image:
+          </label>
+          <input type="file" name="image" onChange={handleFileChange} className='inputam'/>
+        
+        <br />
+        <button type="submit" className='butam'>Submit</button>
       </form>
     </div>
   );
 }
-
-export default Upload;
