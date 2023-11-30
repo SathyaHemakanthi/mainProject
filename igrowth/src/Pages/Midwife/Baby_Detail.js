@@ -21,7 +21,7 @@ function Baby_Detail() {
     
     <div >
       <div className='table-search'>
-    <div>Baby_Detail</div>
+   
      <SearchBar />
      </div>
      <div className="table-container">

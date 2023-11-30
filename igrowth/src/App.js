@@ -1,5 +1,10 @@
-import {ReactDOM} from "react";
-import { createBrowserRouter , RouterProvider, Route, Outlet} from "react-router-dom";
+import { ReactDOM } from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Outlet,
+} from "react-router-dom";
 import Navbar from "./component/Navbar";
 import Navbar2 from "./component/Navbar2";
 import Header from "./component/Header";
@@ -23,27 +28,25 @@ import Signup from "./Pages/Admin/Signup.js";
 import Write from "./Pages/Admin/Write.js";
 
 const Layout1 = ()=>{
-  return(
+  return
     <div>
-      <Header/>
-      <Navbar/>
-      <Outlet/>
+      <Header />
+      <Navbar />
+      <Outlet />
 
-      
-      
       {/* <SearchResults /> */}
-     
+
       {/* <Footer/> */}
     </div>
-  );   
+  );
 };
 
-const Layout2 = ()=>{
-  return(
+const Layout2 = () => {
+  return (
     <div>
-      <Header/>
-      <Navbar2/>
-      <Outlet/>
+      <Header />
+      <Navbar2 />
+      <Outlet />
       {/* <Footer/> */}
     </div>
   );
@@ -51,75 +54,79 @@ const Layout2 = ()=>{
 
 const router = createBrowserRouter([
   {
-    path:"/parent",
-    element:<Layout1/>,
-    children:[
-      {
-        path:"/parent/news" ,
-        element:<News />,
-      },
-      {
-        path:"/parent/growth",
-        element:<Growth />,
-      },
-      {
-        path:"/parent/develop",
-         element:<Develop />,
-      },
-      {
-        path:"/parent/vaccination",
-         element:<Vaccination />,
-      },
-      {
-        path:"/parent/health",
-         element:<Health />,
-      },
-      {
-        path:"/parent/consultation",
-         element:<Consultation />,
-      },{
-        path:"/parent/calender",
-         element:<Calendar />,
-      },{
-        path:"/parent/logout",
-         element:<Logout />,
-      },
-    ]
+    path: "/",
   },
 
   {
-    path:"/midwife",
-    element:<Layout2/>,
-    children:[
+    path: "/parent",
+    element: <Layout1 />,
+    children: [
       {
-        path:"/midwife/measure" ,
-        element:<Measure />,
+        path: "/parent/news",
+        element: <News />,
       },
       {
-        path:"/midwife/baby_detail",
-        element:<Baby_Detail />,
+        path: "/parent/growth",
+        element: <Growth />,
       },
       {
-        path:"/midwife/vacc_detail",
-         element:<Vacc_Detail />,
+        path: "/parent/develop",
+        element: <Develop />,
       },
       {
-        path:"/midwife/consult_advices" ,
-        element:<Consult_Advices />,
+        path: "/parent/vaccination",
+        element: <Vaccination />,
       },
       {
-        path:"/midwife/view_development",
-        element:<View_Development />,
+        path: "/parent/health",
+        element: <Health />,
+      },
+      {
+        path: "/parent/consultation",
+        element: <Consultation />,
+      },
+      {
+        path: "/parent/calender",
+        element: <Calendar />,
+      },
+      {
+        path: "/parent/logout",
+        element: <Logout />,
+      },
+    ],
+  },
 
+  {
+    path: "/midwife",
+    element: <Layout2 />,
+    children: [
+      {
+        path: "/midwife/measure",
+        element: <Measure />,
       },
       {
-        path:"/midwife/create_account",
-        element:<Create_Account />,
-
+        path: "/midwife/baby_detail",
+        element: <Baby_Detail />,
       },
       {
-        path:"/midwife/vaccination1",
-        element:<Vaccination1 />,
+        path: "/midwife/vacc_detail",
+        element: <Vacc_Detail />,
+      },
+      {
+        path: "/midwife/consult_advices",
+        element: <Consult_Advices />,
+      },
+      {
+        path: "/midwife/view_development",
+        element: <View_Development />,
+      },
+      {
+        path: "/midwife/create_account",
+        element: <Create_Account />,
+      },
+      {
+        path: "/midwife/vaccination1",
+        element: <Vaccination1 />,
       },
       
     ]
@@ -146,17 +153,16 @@ const router = createBrowserRouter([
 
 
     ]
+
   },
 ]);
 
-
-function App(){
-  return(
+function App() {
+  return (
     <div>
-        <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </div>
   );
 }
 
 export default App;
-

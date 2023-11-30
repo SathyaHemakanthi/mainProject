@@ -31,7 +31,7 @@ margin-left: 40px;
 }
 .card-title{
     margin-left: 400px;
-    margin-top: -200px;
+    margin-top: 10px;
 }
 
 .card-text{
@@ -43,10 +43,4 @@ margin-left: 40px;
     margin-left: 400px;   
 } 
 
-
-/* .dropdown{
-    margin-top: 20px;
-    margin-left: 30px;
-   
-} */
 
