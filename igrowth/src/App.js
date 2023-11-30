@@ -20,7 +20,10 @@ import Consult_Advices from "./Pages/Midwife/Consult_Advices";
 import View_Development from "./Pages/Midwife/View_Development";
 import Create_Account from "./Pages/Midwife/Create_Account";
 import Vaccination1 from "./Pages/Midwife/Vaccination1";
-         
+import Upload from "./Pages/Admin/Upload.js";
+import Signup from "./Pages/Admin/Signup.js";
+import Write from "./Pages/Admin/Write.js";
+
 const Layout1 = ()=>{
   return(
     <div>
@@ -123,6 +126,30 @@ const router = createBrowserRouter([
         path:"/midwife/vaccination1",
         element:<Vaccination1 />,
       },
+      
+    ]
+
+  },
+  
+  {
+    path:"/admin",
+    element:<Layout2/>,
+    children:[
+      {
+        path:"/admin/signup" ,
+        element:<Signup />,
+      },
+      {
+        path:"/admin/upload" ,
+        element:<Upload />,
+      },
+
+      {
+        path:"/admin/write" ,
+        element:<Write/>,
+      },
+
+
     ]
   },
 ]);
