@@ -98,12 +98,34 @@ function Create_Account() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="parentName">Parent's Name:</label>
+          <label htmlFor="motherName">Mother's Name:</label>
           <input
             type="text"
-            id="parentName"
-            name="parentName"
-            value={baby.parentName}
+            id="motherName"
+            name="motherName"
+            value={baby.motherName}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="fatherName">Father's Name:</label>
+          <input
+            type="text"
+            id="fatherName"
+            name="fatherName"
+            value={baby.fatherName}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="gardianName">Gardian's Name:</label>
+          <input
+            type="text"
+            id="gardianName"
+            name="gardianName"
+            value={baby.gardianName}
             onChange={handleInputChange}
           />
         </div>
