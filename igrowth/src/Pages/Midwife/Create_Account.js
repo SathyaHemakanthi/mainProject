@@ -36,8 +36,11 @@ function Create_Account() {
     <div className="baby-form">
       <h2>Enter Baby Details</h2>
       
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
+
       <div className="form-group">
+        <div className='baby_detail'>
+        <h4>Baby Details</h4>
           <label htmlFor="child-id">Child ID:</label>
           <input
             type="number"
@@ -87,6 +90,10 @@ function Create_Account() {
             onChange={handleInputChange}
           />
         </div>
+
+        
+
+       
         <div className="form-group">
           <label htmlFor="birthCerNo">Birth Certificate Number:</label>
           <input
@@ -97,6 +104,14 @@ function Create_Account() {
             onChange={handleInputChange}
           />
         </div>
+
+        </div>
+
+        <div className='parent_detail'>
+          
+          <h4>Parent Details</h4>
+
+          
         <div className="form-group">
           <label htmlFor="motherName">Mother's Name:</label>
           <input
@@ -119,6 +134,8 @@ function Create_Account() {
           />
         </div>
 
+
+        
         <div className="form-group">
           <label htmlFor="gardianName">Gardian's Name:</label>
           <input
@@ -169,6 +186,7 @@ function Create_Account() {
             value={baby.regDate}
             onChange={handleInputChange}
           />
+        </div>
         </div>
         <button type="submit">Submit</button>
       </form>

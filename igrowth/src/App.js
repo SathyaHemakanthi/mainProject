@@ -28,7 +28,7 @@ import Signup from "./Pages/Admin/Signup.js";
 import Write from "./Pages/Admin/Write.js";
 
 const Layout1 = ()=>{
-  return
+  return(
     <div>
       <Header />
       <Navbar />
