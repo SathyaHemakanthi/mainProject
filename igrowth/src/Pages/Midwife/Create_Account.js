@@ -3,10 +3,17 @@ import './create_account.css';
 
 function Create_Account() {
   const [baby, setBaby] = useState({
+    id: '',
     name: '',
     age: '',
     birthday: '',
+    gender: '',
+    birthCerNo: '',
     parentName: '',
+    parentAddress: '',
+    parentNic: '',
+    regNo: '',
+    regDate: '',
   });
 
   const handleInputChange = (e) => {
@@ -19,6 +26,11 @@ function Create_Account() {
     console.log(baby);
     // You can perform further actions like sending the data to a server here
   };
+
+
+  
+
+  
 
   return (
     <div className="baby-form">
@@ -138,8 +150,10 @@ function Create_Account() {
         </div>
         <button type="submit">Submit</button>
       </form>
+      
     </div>
   );
 }
 
 export default Create_Account;
+
