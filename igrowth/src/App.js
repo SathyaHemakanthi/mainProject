@@ -26,6 +26,7 @@ import Vaccination1 from "./Pages/Midwife/Vaccination1";
 import Upload from "./Pages/Admin/Upload.js";
 import Signup from "./Pages/Admin/Signup.js";
 import Write from "./Pages/Admin/Write.js";
+import NewsTemp from "./Pages/Parent/NewsTemp.js";
 
 const Layout1 = ()=>{
   return
@@ -85,15 +86,7 @@ const router = createBrowserRouter([
         path: "/parent/consultation",
         element: <Consultation />,
       },
-      {
-        path: "/parent/calender",
-        element: <Calendar />,
-      },
-      {
-        path: "/parent/logout",
-        element: <Logout />,
-      },
-    ],
+
   },
 
   {

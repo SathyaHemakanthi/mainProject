@@ -16,14 +16,26 @@ import img6 from './images/helth04.jpg'
 function News() {
   const [news, setData] = useState([]);
 
+  // useEffect(() => {
+  //   fetch("http://localhost:8081/news")
+  //     .then((res) => res.json())
+  //     .then((news) => setData(news))
+  //     .catch((err) => console.log(err));
+  // }, []);
+
   useEffect(() => {
-    fetch("http://localhost:8081/news")
-      .then((res) => res.json())
-      .then((news) => setData(news))
-      .catch((err) => console.log(err));
+    getNews();
+
   }, []);
 
-
+  const getNews = async () => {
+    try {
+      const response = await axios.get("http://localhost:3010/news");
+      setData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 
   return (
@@ -70,7 +82,7 @@ function News() {
 
    <div className="n-container" key={i}>
 
-      <img src={`../igrowth/src/Pages/Parent/images${n.image}`} className="img" alt=""  />
+      <img src={n.url} className="img" alt=""  />
       <div class="right-side">
        
         <div class="paragraph-div-title">
