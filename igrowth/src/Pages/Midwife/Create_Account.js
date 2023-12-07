@@ -3,10 +3,17 @@ import './create_account.css';
 
 function Create_Account() {
   const [baby, setBaby] = useState({
+    id: '',
     name: '',
     age: '',
     birthday: '',
+    gender: '',
+    birthCerNo: '',
     parentName: '',
+    parentAddress: '',
+    parentNic: '',
+    regNo: '',
+    regDate: '',
   });
 
   const handleInputChange = (e) => {
@@ -20,13 +27,28 @@ function Create_Account() {
     // You can perform further actions like sending the data to a server here
   };
 
+
+  
+
+  
+
   return (
     <div className="baby-form">
       <h2>Enter Baby Details</h2>
       
       <form onSubmit={handleSubmit}>
+      <div className="form-group">
+          <label htmlFor="child-id">Child ID:</label>
+          <input
+            type="number"
+            id="child-id"
+            name="child-id"
+            value={baby.id}
+            onChange={handleInputChange}
+          />
+        </div>
         <div className="form-group">
-          <label htmlFor="name">Baby's Name:</label>
+          <label htmlFor="name">Child's Full Name:</label>
           <input
             type="text"
             id="name"
@@ -66,19 +88,94 @@ function Create_Account() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="parentName">Parent's Name:</label>
+          <label htmlFor="birthCerNo">Birth Certificate Number:</label>
+          <input
+            type="number"
+            id="birthCerNo"
+            name="birthCerNo"
+            value={baby.birthCerNo}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="motherName">Mother's Name:</label>
           <input
             type="text"
-            id="parentName"
-            name="parentName"
-            value={baby.parentName}
+            id="motherName"
+            name="motherName"
+            value={baby.motherName}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="fatherName">Father's Name:</label>
+          <input
+            type="text"
+            id="fatherName"
+            name="fatherName"
+            value={baby.fatherName}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="gardianName">Gardian's Name:</label>
+          <input
+            type="text"
+            id="gardianName"
+            name="gardianName"
+            value={baby.gardianName}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="parentAddress">Parent's Address:</label>
+          <input
+            type="text"
+            id="parentAddress"
+            name="parentAddress"
+            value={baby.parentAddress}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="parentNic">Parent's NIC:</label>
+          <input
+            type="text"
+            id="parentNic"
+            name="parentNic"
+            value={baby.parentNic}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="regNo">Registration Number:</label>
+          <input
+            type="number"
+            id="regNo"
+            name="regNo"
+            value={baby.regNo}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="regDate">Registration Date:</label>
+          <input
+            type="date"
+            id="regDate"
+            name="regDate"
+            value={baby.regDate}
             onChange={handleInputChange}
           />
         </div>
         <button type="submit">Submit</button>
       </form>
+      
     </div>
   );
 }
 
 export default Create_Account;
+
