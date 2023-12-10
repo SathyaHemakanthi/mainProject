@@ -23,11 +23,6 @@ import Consult_Advices from "./Pages/Midwife/Consult_Advices";
 import View_Development from "./Pages/Midwife/View_Development";
 import Create_Account from "./Pages/Midwife/Create_Account";
 import Vaccination1 from "./Pages/Midwife/Vaccination1";
-import Upload from "./Pages/Admin/Upload.js";
-import Signup from "./Pages/Admin/Signup.js";
-import Write from "./Pages/Admin/Write.js";
-import NewsTemp from "./Pages/Parent/NewsTemp.js";
-
 import ViewNews from './Pages/Admin/News/News.js'
 import AddNews from './Pages/Admin/News/AddNews.js'
 import EditNews from './Pages/Admin/News/EditNews.js'
@@ -132,30 +127,6 @@ const router = createBrowserRouter([
 
   },
   
-  // {
-  //   path:"/admin",
-  //   element:<Layout2/>,
-  //   children:[
-  //     {
-  //       path:"/admin/signup" ,
-  //       element:<Signup />,
-  //     },
-  //     {
-  //       path:"/admin/upload" ,
-  //       element:<Upload />,
-  //     },
-
-  //     {
-  //       path:"/admin/write" ,
-  //       element:<Write/>,
-  //     },
-
-
-  //   ]
-
-  // },
-
-
   {
     path:"/admin",
     element:<Layout2/>,
