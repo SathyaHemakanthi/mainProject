@@ -79,36 +79,54 @@ import 'react-quill/dist/quill.snow.css';
 import './write.css';
 
 function Upload() {
-  const [title, setTitle] = useState('');
-  const [image, setImage] = useState('');
-  const [content, setContent] = useState('');
+  const [title, setTitle] = useState(null);
+  const [image, setImage] = useState(null);
+  const [content, setContent] = useState(null);
   const navigate = useNavigate();
-  const handleSubmit = (event) => {
-    event.preventDefault();
 
-    axios.post( 'http://localhost:3010/news/addnews', {title,image,content })
-    .then(result => {
-        console.log(result);
-        if(result.data === "Already Added"){
-            alert("Please Check Again.")
-        }
-        else{
-            alert("News Adding Success.")
-        }
-        navigate("/parent/news");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData()
+    formData.append('name', title)
+    formData.append('image', image)
+    formData.append('mobile', content)
+
+    axios.post( 'http://localhost:3010/news/addnews',formData )
+    .then((res) => {
+      console.log(res, "res")
+      if (res.data.code == 200) {
+          navigate('/users')
+      }
+  })
+  .catch((err) => {
+      console.log(err, "err")
+  })
+
+  //   .then(result => {
+  //       console.log(result);
+  //       if(result.data === "Already Added"){
+  //           alert("Please Check Again.")
+  //       }
+  //       else{
+  //           alert("News Adding Success.")
+  //       }
+  //       navigate("/parent/news");
         
-    })
-    .catch(err => console.log(err))
-    ;
+  //   })
+  //   .catch((err) => {
+  //     console.log(err, "err")
+  // })
+
 }
   return (
     <div className='pwrite'>
       <form onSubmit={handleSubmit}>
-        <input className="tint" type='text' placeholder='Title' name='title' id='title' onChange={(event)=>setTitle(event.target.value)} />
+        <input className="tint" type='text' placeholder='Title' name='title' id='title' value={title} onChange={(event)=>setTitle(event.target.value)} />
         <div className="editorContainer">
           <ReactQuill theme='snow' value={content} onChange={(value) => setContent(value)}/>
         </div>
-        <input type="file" name="image"  onChange={(event)=>setImage(event.target.value)} accept="image/*" />
+        <input type="file" name="image"  onChange={(event)=>setImage(event.target.files[0])}  />
         <div className="item">
           <div className="buttons">
             <input type="submit" value="Upload" name="submit-btn" />
@@ -120,3 +138,5 @@ function Upload() {
 }
 
 export default Upload;
+
+

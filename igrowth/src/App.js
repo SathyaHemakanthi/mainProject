@@ -28,8 +28,13 @@ import Signup from "./Pages/Admin/Signup.js";
 import Write from "./Pages/Admin/Write.js";
 import NewsTemp from "./Pages/Parent/NewsTemp.js";
 
+import ViewNews from './Pages/Admin/News/News.js'
+import AddNews from './Pages/Admin/News/AddNews.js'
+import EditNews from './Pages/Admin/News/EditNews.js'
+import AddNewHead from './Pages/Admin/News/AddMainHeading.js'
+import ViewNewsHead from './Pages/Admin/News/NewsHead.js'
 const Layout1 = ()=>{
-  return
+  return (
     <div>
       <Header />
       <Navbar />
@@ -86,6 +91,7 @@ const router = createBrowserRouter([
         path: "/parent/consultation",
         element: <Consultation />,
       },
+    ]
 
   },
 
@@ -126,23 +132,56 @@ const router = createBrowserRouter([
 
   },
   
+  // {
+  //   path:"/admin",
+  //   element:<Layout2/>,
+  //   children:[
+  //     {
+  //       path:"/admin/signup" ,
+  //       element:<Signup />,
+  //     },
+  //     {
+  //       path:"/admin/upload" ,
+  //       element:<Upload />,
+  //     },
+
+  //     {
+  //       path:"/admin/write" ,
+  //       element:<Write/>,
+  //     },
+
+
+  //   ]
+
+  // },
+
+
   {
     path:"/admin",
     element:<Layout2/>,
     children:[
       {
-        path:"/admin/signup" ,
-        element:<Signup />,
+        path:"/admin/viewnews" ,
+        element:<ViewNews/>,
+      },
+    
+      {
+        path:"/admin/add-news" ,
+        element:<AddNews/>,
       },
       {
-        path:"/admin/upload" ,
-        element:<Upload />,
+        path:"/admin/edit-news/:id" ,
+        element:<EditNews/>,
       },
-
       {
-        path:"/admin/write" ,
-        element:<Write/>,
+        path:"/admin/add-news-head" ,
+        element:<AddNewHead/>,
       },
+      {
+        path:"/admin/viewnewshead" ,
+        element:<ViewNewsHead/>,
+      },
+    
 
 
     ]
