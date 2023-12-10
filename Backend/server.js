@@ -135,8 +135,7 @@ mongoose.connect(process.env.DATABASE).then(() => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const newsRoutes = require('./routes/newsRoutes');
-app.use('/news', newsRoutes);
+
 
 // New
 const routing = require('./routes/news'); // Move this line above its usage
