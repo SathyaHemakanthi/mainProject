@@ -9,6 +9,7 @@ function Upload() {
   const [values, setValues] = useState({
     title: '',
     content: '',
+    
   });
 
   const [fimage, setImage] = useState({
@@ -43,7 +44,7 @@ function Upload() {
       })
         .then((res) => {
           alert("Upload success");
-          navigate('/admin/viewnews');
+          navigate('/parent/news');
         })
         .catch((err) => console.log(err));
     }
