@@ -2,6 +2,7 @@ import {ReactDOM} from "react";
 import { createBrowserRouter , RouterProvider, Route, Outlet} from "react-router-dom";
 import Navbar from "./component/Navbar";
 import Navbar2 from "./component/Navbar2";
+import Navbar3 from "./component/Navbar3";
 import Header from "./component/Header";
 import News from "./Pages/Parent/News";
 import Growth from "./Pages/Parent/Growth";
@@ -45,6 +46,16 @@ const Layout2 = ()=>{
     <div>
       <Header/>
       <Navbar2/>
+      <Outlet/>
+      {/* <Footer/> */}
+    </div>
+  );
+};
+const Layout3 = ()=>{
+  return(
+    <div>
+      <Header/>
+      <Navbar3/>
       <Outlet/>
       {/* <Footer/> */}
     </div>
@@ -133,7 +144,7 @@ const router = createBrowserRouter([
   
   {
     path:"/admin",
-    element:<Layout2/>,
+    element:<Layout3/>,
     children:[
       {
         path:"/admin/signup" ,
