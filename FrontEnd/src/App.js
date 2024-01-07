@@ -20,6 +20,8 @@ import Consult_Advices from "./Pages/Midwife/Consult_Advices";
 import View_Development from "./Pages/Midwife/View_Development";
 import Create_Account from "./Pages/Midwife/Create_Account";
 import Vaccination1 from "./Pages/Midwife/Vaccination1";
+import ProfileMid from "./Pages/Midwife/ProfileMid";
+import HeaderMid from "./component/HeaderMid";
          
 const Layout1 = ()=>{
   return(
@@ -40,7 +42,7 @@ const Layout1 = ()=>{
 const Layout2 = ()=>{
   return(
     <div>
-      <Header/>
+      <HeaderMid/>
       <Navbar2/>
       <Outlet/>
       {/* <Footer/> */}
@@ -122,6 +124,9 @@ const router = createBrowserRouter([
       {
         path:"/midwife/vaccination1",
         element:<Vaccination1 />,
+      },{
+        path:"/midwife/profileMid",
+         element:<ProfileMid />,
       },
     ]
   },
