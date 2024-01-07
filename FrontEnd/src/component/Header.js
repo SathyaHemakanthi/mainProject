@@ -13,8 +13,10 @@ function Header() {
             <h2>Monitor Baby Growth & Suggest Advice</h2>
            <div className='btn_gap'>
            
+           <Link to="/parent/profile" className="profile-link">
             <button type="button" className="btn btn-light">Profile</button>
-            <Link to ='/Logout' className="logout">
+            </Link>
+             <Link to ='/Logout' className="logout">
             <button type="button" className="btn btn-light ">Log out</button>
             </Link>
            </div> 

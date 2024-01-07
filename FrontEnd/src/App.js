@@ -11,6 +11,8 @@ import Health from "./Pages/Parent/Health";
 import Consultation from "./Pages/Parent/Consultation";
 import Calendar from "./Pages/Parent/Vaccination";
 import Logout from "./Pages/Parent/Logout";
+import Profile from "./Pages/Parent/Profile";
+
 import Measure from "./Pages/Midwife/Measure";
 import Baby_Detail from "./Pages/Midwife/Baby_Detail";
 import Vacc_Detail from "./Pages/Midwife/Vacc_Detail";
@@ -80,6 +82,9 @@ const router = createBrowserRouter([
       },{
         path:"/parent/logout",
          element:<Logout />,
+      },{
+        path:"/parent/profile",
+         element:<Profile />,
       },
     ]
   },
