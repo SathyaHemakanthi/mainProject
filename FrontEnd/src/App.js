@@ -11,6 +11,8 @@ import Health from "./Pages/Parent/Health";
 import Consultation from "./Pages/Parent/Consultation";
 import Calendar from "./Pages/Parent/Vaccination";
 import Logout from "./Pages/Parent/Logout";
+import Profile from "./Pages/Parent/Profile";
+
 import Measure from "./Pages/Midwife/Measure";
 import Baby_Detail from "./Pages/Midwife/Baby_Detail";
 import Vacc_Detail from "./Pages/Midwife/Vacc_Detail";
@@ -18,6 +20,8 @@ import Consult_Advices from "./Pages/Midwife/Consult_Advices";
 import View_Development from "./Pages/Midwife/View_Development";
 import Create_Account from "./Pages/Midwife/Create_Account";
 import Vaccination1 from "./Pages/Midwife/Vaccination1";
+import ProfileMid from "./Pages/Midwife/ProfileMid";
+import HeaderMid from "./component/HeaderMid";
          
 const Layout1 = ()=>{
   return(
@@ -38,7 +42,7 @@ const Layout1 = ()=>{
 const Layout2 = ()=>{
   return(
     <div>
-      <Header/>
+      <HeaderMid/>
       <Navbar2/>
       <Outlet/>
       {/* <Footer/> */}
@@ -80,6 +84,9 @@ const router = createBrowserRouter([
       },{
         path:"/parent/logout",
          element:<Logout />,
+      },{
+        path:"/parent/profile",
+         element:<Profile />,
       },
     ]
   },
@@ -117,6 +124,9 @@ const router = createBrowserRouter([
       {
         path:"/midwife/vaccination1",
         element:<Vaccination1 />,
+      },{
+        path:"/midwife/profileMid",
+         element:<ProfileMid />,
       },
     ]
   },

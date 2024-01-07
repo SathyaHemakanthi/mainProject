@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './profile.css';
+import './profileMid.css';
 
 function Profile() {
   const [user, setUser] = useState({
@@ -36,7 +36,7 @@ function Profile() {
 
   return (
     <div className="user-profile">
-      <h2 className="user-hed">User Profile</h2>
+      <h2 className="user-hed">Midwife Profile</h2>
       <div className="user-info">
         <img
           className="profile-image"
