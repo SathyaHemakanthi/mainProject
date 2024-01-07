@@ -1,0 +1,40 @@
+.hed{
+    display: flex;
+    height: 50px;
+    padding-left:100px;
+    font-weight: 800;
+    background-color: #CF9FFF;
+    
+}
+
+.hed2{
+    display: flex;
+    margin-top: 0px;
+    font-family: 'Times New Roman', Times;
+    background-color:#CF9FFF ;
+    padding-left: 100px;
+}
+
+.btn-light{
+    display: inline;
+    margin-left: 30px;
+   
+
+}
+
+.btn_gap{
+   
+   padding-left: auto;
+} 
+
+
+
+/* @media screen and (max-width:900px){
+  .btn_gap{
+    padding-left: auto;
+  }
+  
+   
+} */
+  
+

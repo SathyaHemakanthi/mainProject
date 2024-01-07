@@ -1,0 +1,65 @@
+
+.Calender-border {
+  text-align: center;
+  width: 60%; 
+  max-height: fit-content;
+  margin: auto;
+  margin-left: 20%;
+  margin-left: 20%;
+  margin-top: 20px;
+  background-color: #fff; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+.cale{
+  
+  height: 400px;
+  margin: 50px;
+  width:80% ;
+}
+
+
+
+
+.app-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+  
+  .left-side {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .right-side {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+  
+  .calendar {
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  
+  .upcoming-events, .vaccination-history {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .vaccination-history {
+    border-bottom: none;
+  } 
+
+  
